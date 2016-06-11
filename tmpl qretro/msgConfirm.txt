@@ -1,0 +1,5 @@
+	<form name="confirm" action="[url]" method="post">
+		<input type="submit" value="Yes" />
+		<input type="hidden" name="confirmed" value="yes" />
+		<input type="button" value="No" onclick="history.go(-1);return true;">
+	</form>

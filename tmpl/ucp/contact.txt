@@ -1,0 +1,46 @@
+			<form name="contact" action="/ucp/" method="post">
+				<table>
+					<tr>
+						<td>
+							<strong>Skype:</strong>
+						</td>
+						<td>
+							<input name="skype" type="text" maxlength="255" size="30" value="[skype]" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>MSN:</strong>
+						</td>
+						<td>
+							<input name="msn" type="text" maxlength="255" size="30" value="[msn]" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Yahoo:</strong>
+						</td>
+						<td>
+							<input name="yahoo" type="text" maxlength="255" size="30" value="[yahoo]" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>AIM:</strong>
+						</td>
+						<td>
+							<input name="aim" type="text" maxlength="255" size="30" value="[aim]" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Steam:</strong>
+						</td>
+						<td>
+							<input name="steam" type="text" maxlength="255" size="30" value="[steam]" />
+						</td>
+					</tr>
+				</table>
+				<input type="hidden" name="section" value="contact" />
+				<input type="submit" value="Submit" />
+			</form>

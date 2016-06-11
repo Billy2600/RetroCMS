@@ -1,0 +1,30 @@
+			<!-- Popular -->
+			<div class="post_title">Popular</div>
+			<div class="post_body">
+				<ul>
+					[popular]
+				</ul>
+			</div>
+			<!-- newest -->
+			<div class="post_title">Random</div>
+			<div class="post_body">
+				<ul>
+					[trending]
+				</ul>
+			</div>
+			<!-- contributors -->
+			<div class="post_title" id="contrib">Contributors</div>
+			<div class="post_body">
+				<ul>
+					[contributors]
+				</ul>
+			</div>
+			<!-- friends -->
+			<div class="post_title">Friends</div>
+			<div class="post_body">
+				<ul>
+					<li><a href="http://qualityroms.net" target="_blank"><img src="/img/qualityroms.png" alt="Quality Roms"/></li>
+					<li><a href="http://monkeypro.net" target="_blank"><img src="/img/monkeypro.png" alt="Monkey Pro" /></a></li>
+				</ul>
+			</div>
+			

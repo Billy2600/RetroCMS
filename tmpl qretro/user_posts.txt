@@ -1,0 +1,14 @@
+	<!-- display a users posts -->
+	<div class="post_title">
+		Displaying posts by [username]
+	</div>
+	<div class="post_body">
+		<table width="100%" id="userposts_table">
+			<tr>
+				<td><strong>#</strong></td>
+				<td><strong>Name</strong></td>
+				<td><strong>Date</strong></td>
+			</tr>
+			[posts]
+		</table>
+	</div>

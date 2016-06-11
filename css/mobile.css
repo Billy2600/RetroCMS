@@ -1,0 +1,122 @@
+@import url("/css/default.css");
+
+body {
+	font-size: 20px;
+	background-color: #0D0D0D;
+	background-image: url(/img/spaceinv_background.png);
+}
+#wrap {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+#main {
+	float: none;
+	width: 100%;
+}
+#sidebar {
+	float: none;
+	width: 100%;
+	margin-left: 0.5%;
+}
+#sidebartop img {
+	width: 25px;
+	height: auto;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+}
+#quicksearch input[type=image] {
+	width: 25px;
+	height: auto;
+}
+.logostrip {
+	background: #000000;
+	margin-bottom: 0px;
+}
+.categories {
+	font-family: nise_genesis;
+	font-size: 120%;
+	line-height:40px;
+}
+.categories a {
+	border-bottom: 2px solid #ad324b;
+}
+.loginbar {
+	background-color: #84263a;
+	text-shadow: 0.1em 0.1em 0.2em black;
+}
+.post_title {
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;
+	border-top: 1px solid #666;	/* remove shadows */
+	-webkit-box-shadow: none;
+	-moz-box-shadow:    none;
+	box-shadow:         none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow:    none;
+	box-shadow:         none;
+	font-size: 150%;
+	background: #000000;
+}
+.post_desc {
+	background: #212121;
+}
+.post_body, .up_body, .ucp_body {
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	-webkit-box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.51);
+	-moz-box-shadow:    0px 7px 7px rgba(0, 0, 0, 0.51);
+	box-shadow:         0px 7px 7px rgba(0, 0, 0, 0.51);
+	background: #000000; /* Old browsers */
+}
+.tags {
+	border-top: 1px solid #ad324b;
+}
+
+/* sidebar specific things */
+#sidebar li {
+	border-bottom: 1px solid #ad324b;
+}
+/* user page layout */
+.up_row {
+	background: #000;
+}/* user cp */
+.ucp_body {
+	/* different background than post_body */
+	background: #212121;
+}
+.ucp_left {
+	border-right: 2px solid #84263a;
+}
+.ucp_left li {
+	background-color: rgba(132,38,58,0.3);
+}
+.ucp_title {
+	background-color: #84263a !important;
+}
+.com1, .com2 {
+	border-top-left-radius: 20px 10px;
+	border-top-right-radius: 20px 10px;
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	border: 1px solid #212121;
+	-webkit-box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.51);
+	-moz-box-shadow:    0px 7px 7px rgba(0, 0, 0, 0.51);
+	box-shadow:         0px 7px 7px rgba(0, 0, 0, 0.51);
+	background: #212121;
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+.oldposts, .newposts {
+	border: 1px solid #212121;
+	background: rgb(30,87,153); /* Old browsers */
+	background: #000000; /* Old browsers */
+}
+.friendslinks {
+	background-color: #000;
+	background-repeat: no-repeat;
+	background-image: url(/img/segalogo.png);
+	background-position: right;
+}

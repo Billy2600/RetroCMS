@@ -1,0 +1,89 @@
+	<div class="post_title">
+		Register
+	</div>
+	<div class="post_body">
+		<form name="login" action="/reg/" method="post">
+		<table>
+			<tr>
+				<td>
+					<strong>Username:</strong>
+				</td>
+				<td>
+					<input name="name" type="text" size="30" maxlength="255" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Password:</strong>
+				</td>
+				<td>
+					<input name="pass" type="password" size="30"  maxlength="255"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Confirm Pass:</strong>
+				</td>
+				<td>
+					<input name="conpass" type="password" size="30" maxlength="255" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>E-mail:</strong>
+				</td>
+				<td>
+					<input name="email" type="text" size="30" maxlength="255" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Gender:</strong>
+				</td>
+				<td>
+					<select name="gender">
+						<option value="1">Male</option>
+						<option value="2">Female</option>
+						<option value="0">Not Telling</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Birthday:</strong>
+				</td>
+				<td>
+					<select name="day">
+						[days]
+					</select>
+					<select name="month">
+						[months]
+					</select>
+					<select name="year">
+						[years]
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Country:</strong>
+				</td>
+				<td>
+					<select name="country">
+						[countries]
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Captcha:</strong>
+				</td>
+				<td>
+					[captcha]
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="submit" value="true" />
+		<input type="submit" value="Submit" />
+		</form>
+	</div>

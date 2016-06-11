@@ -1,0 +1,1 @@
+<a href="/tags/[name]/" class="logocat">[name]</a>

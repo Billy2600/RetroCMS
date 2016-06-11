@@ -1,0 +1,13 @@
+<p>Welcome to the mangement page. You can add and edit your content here.</p>
+					<p><strong>Advice on making a post</strong></p>
+					<p>Please do not use custom fonts/colors in your post unless <em>absolutely</em> necessary, as we'd like to strive for consistency and also future proofing. Also please keep the font-size default unless for special cases like headers. To remove formatting from your text, paste it into notepad before pasting it into the editor. We recommend you make all final adjustments to your post in the on-site editor. If you need to upload images please use the "Upload images" link to the left, as we'd like to keep as much content on-site as possible. Once you upload an image, it'll give you the paths to the image/thumb you need to embed it in your post.</p>
+					<p>Please include at least some of the following in your tags:</p>
+					<ul>
+					<li>Console/platform</li>
+					<li>Genre</li>
+					<li>Publisher and/or developer</li>
+					<li>'Retro' or 'Modern'</li>
+					<li>If it's not a game review, 'other' (this includes site news)</li>
+					<li>People involved in the production, if they're particularly noteworthy</li>
+					<li>Any related terms. (For instance, for Left 4 Dead I'd put: zombie, cooperative)</li>
+					</ul>

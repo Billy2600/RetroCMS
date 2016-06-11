@@ -1,0 +1,20 @@
+		<div class="post_title">
+			About
+		</div>
+		<div class="post_body">
+			<p>The story of QualityRetro! is a rather long and strange one. It all started in the spring  of 2011 when Argus Swift started posting reviews of classic games on a dead forum. He came to call these reviews his "Retro of the Week". They were beloved by all, and an instant success. In fact, the very first one he posted had people clamoring for more!</p>
+			
+			<p>Sometime between then and February 2012, Billy2600 began working on a site to showcase these articles, and after quite a bit of designing, redesiging, throwing everything away and redesigning again, the site was opened in July of that year!</p>
+			
+			<p>Around the same time, Lazlo Falconi, who had been on Internet hiatus since 2008 decided it was time to make a website. Having no interests besides SNES and GameBoy Advance games, he decided to revive his favorite old ROM site, Arch Nacho and Tortilla Godzilla's Quality ROMs. But it would be a new site, one for the 21st century, complete with floating DIVs and PHP, this site would be a place for the Millenial generation to find old games. Born out of necessity to get all his friends on a single forum, the site was under developed and had no content, but boy did it have a forum! And thanks to the careful cultivation of Lazlo, KG, Billy, and many others, this small community began to thrive.</p>
+			
+			<p>But the fact remained that it was still a site about emulation, a highly controversial subject, and Lazlo feared that his little site could be dropped any day. What could he do?</p>
+			
+			<p>When Argus went on a hiatus to return to his writing, Retro of the Week languished. Months would pass between updates, and generally the only people reading Retro of the Week were those who had recently submitted an article. Something had to be done.</p>
+			
+			<p>The idea wasn't new. It had been tossed around before, but finally Lazlo and Billy decided it was time to merge. Lazlo already owned QualityRetro.net as a backup to QualityRoms, and together with Billy, began to merge the two sister sites.</p>
+			
+			<p>In September (or maybe November, it hasn't happened yet) 2013, the QualityRoms forum was moved and merged with Retro of the Week's content to form QualityRetro! A site devoted to all things Retro gamers would like! From Ataris to GameBoys and PCs, and everything in between, QualityRetro! aims to be your source for gaming news, retro reviews, and generally anything nerds like us would be interested in.</p>
+			
+			<p>And that's where you come in! We want <em>you</em> to contribute! This site is by gamers, for gamers, so if you see something cool, feel free to <a href="">submit an article</a>, or if you think you'll be submitting a lot of articles, why not <a href="/reg/">make an account</a>?</p>
+		</div>

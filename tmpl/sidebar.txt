@@ -1,0 +1,71 @@
+</div>
+		<!-- end main -->
+		<!-- sidebar -->
+		<div id="sidebar">
+			<!-- search box -->
+			<div class="post_title" id="sidebartop">
+				<a href="/rssfeed/"><img src="/img/icon_rss.png" alt="rss" /></a>
+				<a href="http://www.facebook.com/RetroOfTheWeek"><img src="/img/icon_facebook.png" alt="facebook" /></a>
+				<!-- <a href="https://plus.google.com/102528933418606123896?prsrc=3"><img src="/img/icon_gplus.png" alt="google plus" /></a> -->
+				<a href="http://steamcommunity.com/groups/retrooftheweek"><img src="/img/icon_steam.png" alt="steam group" /></a>
+				<a href="https://twitter.com/retrooftheweek"><img src="/img/icon_twitter.png" alt="twitter" /></a>
+				<audio preload>
+					<source src="/snd/geep_high.mp3" type="audio/mpeg">
+				</audio>
+				<a href="javascript:PlaySound();"><img src="/img/icon_metroid.png" alt="Squee!"></a>
+			</div>
+			<div class="post_body" id="quicksearch">
+				<form name="search" action="/search.php" method="get">
+					<!-- hidden options -->
+					<input type="hidden" name="type" value="tags" />
+					<input type="hidden" name="scope" value="all" />
+					<!-- text entry -->
+					<input type="text" name="q" size="10" value="Search" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Search':this.value;" />
+					<input type="image" src="/img/icon_search.png" alt="Submit" />
+				</form>
+				<!-- skin selector -->
+				<!-- <select onchange="location.href=this.options[selectedIndex].value" class="skinselect">
+					<option value="/changeskin/default/">Change Skin</option>
+					<option value="/changeskin/default/">Default</option>
+					<option value="/changeskin/red/">Red Team</option>
+					<option value="/changeskin/megasis/">Megasis</option>
+				</select> -->
+			</div>
+			<!-- Popular -->
+			<div class="post_title">Popular</div>
+			<div class="post_body">
+				<ul>
+					[popular]
+				</ul>
+			</div>
+			<!-- newest -->
+			<div class="post_title">Random</div>
+			<div class="post_body">
+				<ul>
+					[trending]
+				</ul>
+			</div>
+			<!-- newest comments -->
+			<div class="post_title">Latest Comments</div>
+			<div class="post_body">
+				<ul>
+					[latest_com]
+				</ul>
+			</div>
+			<!-- contributors -->
+			<div class="post_title" id="contrib">Contributors</div>
+			<div class="post_body">
+				<ul>
+					[contributors]
+				</ul>
+			</div>
+			<!-- friends -->
+			<div class="post_title">Friends</div>
+			<div class="post_body">
+				<ul>
+					<li><a href="http://qualityroms.net" target="_blank"><img src="/img/qualityroms.png" alt="Quality Roms"/></li>
+					<li><a href="http://monkeypro.net" target="_blank"><img src="/img/monkeypro.png" alt="Monkey Pro" /></a></li>
+					<li><a href="http://z13.invisionfree.com/EchoNET/" target="_blank"><img src="/img/echonetwork.png" alt="Echo Network" /></a></li>
+				</ul>
+			</div>
+			

@@ -1,0 +1,10 @@
+			<!-- display message -->
+			<div class="msgtitle">
+				<strong>[title]</strong> - From <a href="/u/[fid]/">[fname]</a>. Sent on [date]
+			</div>
+			<blockquote>
+				[text]
+			</blockquote>
+			<div class="msgtitle">
+				Reply
+			</div>

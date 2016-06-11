@@ -1,0 +1,27 @@
+<!-- user page -->
+	<div class="post_title">Viewing User: [username]</div>
+	<div class="up_body">
+		<!-- left section -->
+		<div class="upleft">
+			<div class="up_row"><img src="[avatar]" alt="[username]'s Avatar" class="upavatar" /></div>[PM]
+			<div class="up_row"><strong>Gender:</strong> [gender]</div>
+			<div class="up_row"><strong>Name:</strong> [fname] [lname]</div>
+			<div class="up_row"><strong>Country:</strong> <img src="/img/flags/[country].gif" alt="[country]" /></div>
+			<div class="up_row"><strong>Joined On:</strong> [join_date]</div>
+			<div class="up_row"><strong>Birthday:</strong> [birthday]</div>
+			<div class="up_row"><strong>Email:</strong> <a href="mailto:[email]">[email]</a></div>
+			<div class="up_row"><strong>Skype:</strong> [skype]</div>
+			<div class="up_row"><strong>MSN:</strong> [msn]</div>
+			<div class="up_row"><strong>Yahoo:</strong> [yahoo]</div>
+			<div class="up_row"><strong>AIM:</strong> [aim]</div>
+			<div class="up_row"><strong>Steam:</strong> [steam]</div>
+		</div>
+		<!-- right section -->
+		<div class="upright">
+			<div class="uptitle">About Me</div>
+			[aboutme]
+			<div class="uptitle">Latest Posts</div>
+			[latestposts]
+			[allposts]
+		</div>
+	</div>

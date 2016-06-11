@@ -1,0 +1,1 @@
+			Result: <input type="text" name="url" value="[tinyurl]" size="50" />

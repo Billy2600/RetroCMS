@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+	<channel>
+		<title>QualityRetro!</title>
+		<link>http://www.qualityretro.net/</link>
+		<description>Video game reviews and other video game content</description>
+		<image>
+			<url>http://retrooftheweek.net/img/logostrip.png</url>
+			<title>QualityRetro!</title>
+			<link>http://qualityretro.net</link>
+		</image>
+		<language>en-us</language>

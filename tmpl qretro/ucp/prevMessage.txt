@@ -1,0 +1,4 @@
+			<div class="prevmsgtxt">Previous Message:</div>
+			<blockquote>
+				[text]
+			</blockquote>

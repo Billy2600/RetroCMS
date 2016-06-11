@@ -1,0 +1,251 @@
+@import url("/css/default.css");
+
+body {
+	font-family: Tahoma, Arial, Verdana, Georgia;
+	font-size: 13px;
+	color: black;
+	background-color: #008282;
+	background-image: none;
+}
+
+/* link stuff */
+a:link {
+	color: blue;
+	text-decoration: underline;
+}
+a:visited {
+	color: blue;
+	text-decoration: underline;
+}
+a:active {
+	color: purple;
+	text-decoration: underline;
+}
+a:hover {
+	color: purple;
+	text-decoration: underline;
+}
+
+/* top of page */
+.logostrip {
+	background: #c0c0c0;
+	border-bottom: 4px ridge #000;
+	text-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.categories a, .categories a:hover {
+	color: black;
+	text-decoration: none;
+	border-right: 4px ridge #000;
+	border-bottom: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-top: 4px groove #c3c3c3;
+	padding: 2px;
+	text-shadow: none;
+}
+.loginbar {
+	background-color: #000080;
+	color: white;
+}
+.loginbar a {
+	color: white;
+}
+
+/* post stuff */
+.post_title {
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	background: #000080;
+	background-image: url("/img/win95buttons.png");
+	background-repeat: no-repeat;
+	background-position: 99.8% 3px;
+	/* windows style borders */
+	border-right: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-top: 4px groove #c3c3c3;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.post_title a {
+	color: white;
+	text-shadow: none;
+	text-decoration: none;
+}
+.post_title a:hover {
+	color: #B4B6B9;
+	text-shadow: none;
+	text-decoration: none;
+}
+.post_desc {
+	background: #c0c0c0;
+	font-size: 12px;
+	overflow: inherit;
+	/* windows style borders */
+	border-right: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-radius: 0;
+}
+.post_body, .up_body, .ucp_body {
+	background: #c0c0c0;
+	/* windows style borders */
+	border-bottom: 4px ridge #000;
+	border-right: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.postav {
+	width: 16px;
+	height: 16px;
+	border-radius: 0;
+	background: none;
+}
+
+/* sidebar specific things */
+#sidebar .post_body {
+	border-radius: 0;
+}
+
+/* forms */
+input {
+	background: white;
+	border-right: 4px ridge #000;
+	border-bottom: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-top: 4px groove #c3c3c3;
+	background-color: white;
+	border-radius: 0;
+}
+input:disabled {
+	background: white;
+	border-right: 4px ridge #000;
+	border-bottom: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-top: 4px groove #c3c3c3;
+	background-color: #c3c3c3;
+	color: #808080;
+}
+textarea {
+	border-left: 4px ridge #000;
+	border-top: 4px ridge #000;
+	border-right: 4px groove #c3c3c3;
+	border-bottom: 4px groove #c3c3c3;
+	background: white;
+}
+input[type=submit] {
+	background: white;
+	border-right: 4px ridge #000;
+	border-bottom: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-top: 4px groove #c3c3c3;
+	background-color: #c3c3c3;
+	border-radius: 0;
+}
+input[type=button] {
+	background: white;
+	border-right: 4px ridge #000;
+	border-bottom: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-top: 4px groove #c3c3c3;
+	background-color: #c3c3c3;
+	border-radius: 0;
+}
+
+/* user page */
+.upleft {
+	margin: 0.8%;
+	border-left: 4px ridge #000;
+	border-top: 4px ridge #000;
+	border-right: 4px groove #c3c3c3;
+	border-bottom: 4px groove #c3c3c3;
+	background-color: white;
+	padding: 0.3%;
+}
+.upright {
+	width: 70%;
+}
+.up_row {
+	padding: 0;
+	background-color: white;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+/* comment section */
+.com_title {
+	border-bottom: none;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	padding: 0.5%;
+	overflow: inherit;
+	margin-top: 1.5%;
+	background-color: #000080;
+	background-image: url("/img/win95buttons.png");
+	background-repeat: no-repeat;
+	background-position: 99.8% 3px;
+	/* windows style borders */
+	border-right: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-top: 4px groove #c3c3c3;
+}
+.com1, .com2 {
+	background: #c0c0c0;
+	/* windows style borders */
+	border-bottom: 4px ridge #000;
+	border-right: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.com1 {
+	margin-top: none;
+}
+.com2 {
+	margin-top: none;
+	margin-bottom: none;
+}
+
+/* misc */
+.oldposts, .newposts {
+	background: #c3c3c3;
+	border-right: 4px ridge #000;
+	border-bottom: 4px ridge #000;
+	border-left: 4px groove #c3c3c3;
+	border-top: 4px groove #c3c3c3;
+	border-radius: 0;
+}
+.oldposts a, .newposts a {
+	color: black;
+}
+
+.oldposts a:hover, .newposts a:hover {
+	color: black;
+}
+
+.friendslinks {
+	font-size: 0px;
+	border-top: 4px groove #c3c3c3;
+	background-color: #c3c3c3;
+	background-image: url("/img/startbutton.png");
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 56px;
+}
+.friendslinks img {
+	height: 20px;
+	border-right: 2px ridge #000;
+	border-bottom: 2px ridge #000;
+	border-left: 2px groove #c3c3c3;
+	border-top: 2px groove #c3c3c3;
+}

@@ -1,0 +1,247 @@
+# This file is part of RetroCMS.
+#
+# RetroCMS is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# RetroCMS is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with RetroCMS.  If not, see <http:#www.gnu.org/licenses/>.
+# Copyright 2016 William McPherson
+
+DirectoryIndex index.php
+ErrorDocument 404 /404.php
+
+RewriteEngine On
+RewriteRule ^start/(.*)/$ /index.php?start=$1 [L]
+RewriteRule ^p/([^/]*)\/([^/]*)/$ /post.php?id=$1 [L]
+RewriteRule ^p/([^/]*)\/$ /post.php?id=$1 [L]
+RewriteRule ^u/([^/]*)\/$ /user.php?id=$1 [L]
+RewriteRule ^tags/(.*)/$ /search.php?tags=$1 [L]
+RewriteRule ^tags/(.*)/start/(.*)$ /search.php?tags=$1&start=$2 [L]
+RewriteRule ^ucp/addmsg/(.*)/$ /usercp.php?do=addmsg&to=$1 [L]
+RewriteRule ^ucp/$ /usercp.php [L]
+RewriteRule ^ucp/msg/(.*)/$ /usercp.php?do=msg&mid=$1 [L]
+RewriteRule ^ucp/(.*)/$ /usercp.php?do=$1 [L]
+RewriteRule ^category\/([^/]*)\/$ /search.php?category=$1 [L]
+RewriteRule ^about/$ /post.php?id=27 [L]
+RewriteRule ^addcom/$ /addcomment.php [L]
+RewriteRule ^editcom/$ /editcomment.php [L]
+RewriteRule ^editcom\/([^/]*)\/$ /editcomment.php?id=$1 [L]
+RewriteRule ^li/$ /login.php [L]
+RewriteRule ^lo/$ /logout.php [L]
+RewriteRule ^submitpost/$ /submit.php [L]
+RewriteRule ^reg/$ /register.php [L]
+RewriteRule ^print/(.*)/$ /pfriendly.php?id=$1 [L]
+RewriteRule ^rssfeed/$ /rss.php [L]
+RewriteRule ^changeskin/(.*)/$ /changestyle.php?css=$1 [L]
+RewriteRule ^userposts/(.*)/$ /user_posts.php?id=$1 [L]
+RewriteRule ^rate/(.*)/(.*)/(.*)/$ /vote.php?pid=$1&value=$2&type=$3 [L]
+
+#These are mostly spambots
+order allow,deny
+deny from 199.19.109.246
+deny from 199.19.108.148
+deny from 199.83.95.202
+deny from 91.207.7.254
+deny from 1.161.135.130
+deny from 1.161.136.52
+deny from 1.161.142.72
+deny from 192.162.19.193
+deny from 108.178.53.114
+deny from 27.54.45.4
+deny from 46.119.122.120
+deny from 46.118.117.188
+deny from 46.118.124.46
+deny from 46.118.155.49
+deny from 178.137.86.106
+deny from 178.137.93.131
+deny from 178.137.89.232
+deny from 192.74.231.11
+deny from 142.4.97.172
+deny from 142.4.97.172
+deny from 142.4.117.162
+deny from 192.74.228.163
+deny from 175.42.82.236
+deny from 142.4.117.162
+deny from 175.42.84.66
+deny from 112.111.184.134
+deny from 175.42.80.15
+deny from 212.59.28.172
+deny from 192.74.228.163
+deny from 142.4.117.162
+deny from 175.42.82.232
+deny from 175.44.14.76
+deny from 142.4.97.173
+deny from 192.74.228.164
+deny from 175.42.81.232
+deny from 37.59.131.237
+deny from 37.59.131.237
+deny from 175.42.84.173
+deny from 5.135.43.98
+deny from 5.135.43.98
+deny from 5.135.41.188
+deny from 5.135.41.188
+deny from 46.105.37.71
+deny from 188.165.48.165
+deny from 188.165.48.165
+deny from 188.165.59.142
+deny from 188.165.59.142
+deny from 87.98.153.34
+deny from 87.98.153.34
+deny from 37.59.131.237
+deny from 37.59.80.28
+deny from 37.59.80.28
+deny from 5.39.112.250
+deny from 46.105.37.71
+deny from 176.31.64.42
+deny from 176.31.64.42
+deny from 37.59.131.237
+deny from 46.105.57.113
+deny from 46.105.57.113
+deny from 87.98.186.218
+deny from 178.32.149.29
+deny from 188.165.112.229
+deny from 87.98.186.218
+deny from 46.105.54.62
+deny from 5.135.43.96
+deny from 46.105.54.62
+deny from 5.135.43.96
+deny from 188.165.112.229
+deny from 188.165.59.142
+deny from 188.165.59.142
+deny from 46.105.37.71
+deny from 188.165.48.165
+deny from 188.165.48.165
+deny from 37.59.162.250
+deny from 37.59.162.250
+deny from 5.135.41.188
+deny from 5.135.41.188
+deny from 5.39.112.250
+deny from 178.32.149.29
+deny from 188.165.157.145
+deny from 188.165.157.145
+deny from 5.135.43.98
+deny from 5.135.43.98
+deny from 37.59.131.237
+deny from 37.59.131.237
+deny from 87.98.153.34
+deny from 87.98.153.34
+deny from 37.59.80.28
+deny from 5.39.112.250
+deny from 37.59.80.28
+deny from 176.31.64.42
+deny from 46.105.37.71
+deny from 178.32.149.29
+deny from 188.165.112.229
+deny from 188.165.112.229
+deny from 87.98.186.218
+deny from 87.98.186.218
+deny from 46.105.54.62
+deny from 46.105.54.62
+deny from 5.135.43.96
+deny from 5.135.43.96
+deny from 5.39.112.250
+deny from 5.135.41.188
+deny from 178.32.149.29
+deny from 188.165.157.145
+deny from 188.165.157.145
+deny from 188.165.59.142
+deny from 188.165.48.165
+deny from 188.165.59.142
+deny from 188.165.48.165
+deny from 46.105.37.71
+deny from 176.31.64.42
+deny from 46.105.57.113
+deny from 46.105.57.113
+deny from 37.59.162.250
+deny from 178.32.149.29
+deny from 178.32.149.29
+deny from 37.59.131.237
+deny from 37.59.131.237
+deny from 5.39.112.250
+deny from 87.98.153.34
+deny from 87.98.153.34
+deny from 37.59.80.28
+deny from 37.59.80.28
+deny from 46.105.37.71
+deny from 176.31.64.42
+deny from 5.135.43.98
+deny from 5.135.43.98
+deny from 5.135.43.96
+deny from 5.135.43.96
+deny from 87.98.186.218
+deny from 46.105.54.62
+deny from 87.98.186.218
+deny from 46.105.54.62
+deny from 5.39.112.250
+deny from 176.31.150.155
+deny from 176.31.150.155
+deny from 37.59.162.250
+deny from 46.105.37.71
+deny from 37.59.162.250
+deny from 5.135.41.188
+deny from 176.31.64.42
+deny from 188.165.59.142
+deny from 188.165.59.142
+deny from 188.165.157.145
+deny from 188.165.157.145
+deny from 37.59.131.237
+deny from 87.98.153.34
+deny from 87.98.153.34
+deny from 176.31.64.42
+deny from 37.59.80.28
+deny from 37.59.80.28
+deny from 5.135.43.96
+deny from 37.59.131.237
+deny from 46.105.37.71
+deny from 5.135.43.96
+deny from 188.165.48.165
+deny from 188.165.48.165
+deny from 188.165.112.229
+deny from 46.105.54.62
+deny from 5.135.43.98
+deny from 5.135.43.98
+deny from 176.31.64.42
+deny from 46.105.37.71
+deny from 5.39.112.250
+deny from 188.165.157.145
+deny from 188.165.157.145
+deny from 176.31.64.42
+deny from 87.98.153.34
+deny from 87.98.153.34
+deny from 176.31.64.42
+deny from 46.105.57.113
+deny from 46.105.57.113
+deny from 80.93.217.42
+deny from 188.165.48.165
+deny from 5.135.41.188
+deny from 5.135.41.188
+deny from 188.165.59.142
+deny from 188.165.59.142
+deny from 178.32.149.29
+deny from 188.165.112.229
+deny from 188.165.112.229
+deny from 178.32.149.29
+deny from 5.135.43.98
+deny from 37.59.131.237
+deny from 37.59.162.250
+deny from 37.59.162.250
+deny from 5.39.112.250
+deny from 188.143.233.39
+deny from 188.143.233.39
+deny from 222.77.229.228
+deny from 120.37.209.92
+deny from 27.153.234.111
+deny from 222.77.203.222
+deny from 222.77.203.222
+deny from 113.212.68.243
+deny from 142.4.206.104
+deny from 142.4.206.101
+deny from 142.4.206.104
+allow from all

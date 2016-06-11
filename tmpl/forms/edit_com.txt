@@ -1,0 +1,10 @@
+		<div class="post_title">
+			Editing Comment
+		</div>
+		<div class="post_body">
+			<form action="/editcom/[id]/" method="post" name="editcomment">
+				<div><textarea name="text" rows="10" cols="50">[text]</textarea></div>
+				[msg_reply]
+				<input type="submit" value="Submit" />
+			</form>
+		</div>

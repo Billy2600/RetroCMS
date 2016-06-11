@@ -1,0 +1,4 @@
+Put Tiny MCE in here; this directory should contain the following files:
+tiny_mce.js
+tiny_mce_popup.js
+tiny_mce_src.js

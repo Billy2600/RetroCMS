@@ -1,0 +1,11 @@
+<p>Welcome to the mangement page. You can add and edit your content here.</p>
+					<p><strong>New guidelines for tags</strong></p>
+					<p>It's time to get serious about tags, guys. The most important part of being able to use the site is finding our content. This can't happen with limited and/or useless tags. Please include at least some of the following:</p>
+					<ul>
+					<li>Console/platform</li>
+					<li>Genre</li>
+					<li>Publisher and/or developer</li>
+					<li>'Retro' or 'Modern'</li>
+					<li>If it's not a game review, 'other' (this includes site news)</li>
+					<li>Any related terms. (For instance, for Left 4 Dead I'd put: zombie, cooperative)</li>
+					</ul>

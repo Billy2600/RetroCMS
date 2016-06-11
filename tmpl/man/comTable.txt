@@ -1,0 +1,17 @@
+			<form action="/manage/delete_com.php" method="post" name="deletecom">
+				<p>
+					<input type="submit" value="Delete selected posts" />
+					<input type="checkbox" name="ban" value="true" /> Also ban IP attached to comment.
+				</p>
+				<table width="100%" cellspacing="0" cellpadding="0">
+					<tr class="msglink">
+						<td width="150px">
+							<strong>Delete</strong>
+						</td>
+						<td width="150px">
+							<strong>Poster</strong>
+						</td>
+						<td>
+							<strong>Comment</strong> (click to view full comment)
+						</td>
+					</tr>

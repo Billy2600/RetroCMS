@@ -1,0 +1,22 @@
+	<!-- Editor CP -->
+	<div class="post_title">[title]</div>
+	<div class="ucp_body">
+		<table class="ucp_table">
+			<tr>
+				<td class="ucp_left">
+					<ul>
+						[admin]
+						<li class="ucpTitle"><strong>Editor Options:</strong></li>
+						<li>- <a href="/manage/imguploads.php">Upload Images</a></li>
+						<li>- <a href="/manage/add.php">Add Post</a></li>
+						<li>- <a href="/manage/edit.php">Edit Post</a></li>
+						<li>- <a href="/manage/delete_com.php">Delete Comments</a></li>
+						<li>- <a href="/manage/delete.php">Delete Post</a></li>
+					</ul>
+				</td>
+				<td class="ucp_right">
+					[form]
+				</td>
+			</tr>
+		</table>
+	</div>

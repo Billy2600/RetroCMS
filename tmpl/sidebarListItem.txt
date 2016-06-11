@@ -1,0 +1,2 @@
+					<li><a href="/p/[pid]/">[title]</a></li>
+					

@@ -1,0 +1,3 @@
+			<form name="enterid" action="/manage/tinyurl.php" method="post">
+					Enter URL to create a TinyURL of: <input type="text" name="url" size="50" /> <input type="submit" value="Submit" />
+			</form>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+	<!--
+		Greetings internet traveller! I see you've taken an interest in my HTML code, that's good.
+		I'm no expert, but if you're trying to learn or just want to steal some code, go ahead.
+		Some credit would be cool in that case, but whatever, I don't care either way.
+		If you see an error in my code e-mail me at billymcfly@gmail.com.
+	-->
+	<meta name="description" content="[desc]">
+	<title>Retro of the Week[title]</title>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta name="keywords" content="Retro of the Week, Retro, video games, video, games, gaming, 8-bit, 16-bit, modern games" />
+	<meta name="author" content="William 'Billy2600' McPherson" />
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+	<link href="[css]" rel="stylesheet" type="text/css">
+	<!-- show/hide content, from http://www.cssnewbie.com/showhide-content-css-javascript/ -->
+	<script language="JavaScript" type="text/javascript">
+	function showHide(shID) {
+		if (document.getElementById(shID)) {
+			if (document.getElementById(shID+'-show').style.display != 'none') {
+				document.getElementById(shID+'-show').style.display = 'none';
+				document.getElementById(shID).style.display = 'block';
+			}
+			else {
+				document.getElementById(shID+'-show').style.display = 'inline';
+				document.getElementById(shID).style.display = 'none';
+			}
+		}
+	}
+	</script>
+	<!-- play sound effects -->
+	<script language="javascript" type="text/javascript">
+		function PlaySound(soundfile)
+		{
+			var v = document.getElementsByTagName("audio")[0];
+			v.play();
+		}
+	</script>
+	<!-- google analytics -->
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-30510861-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	
+	</script>
+	<!-- it's a secret to everybody -->
+	<script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>
+	<script type="text/javascript">
+	konami = new Konami()
+	konami.load("/changeskin/win95/")
+	</script>
+</head>
+<body>
+	<!-- Logo strip
+		I know I shouldn't use tables for layouts, but... shut up
+		If you know a better way, e-mail me
+	-->
+	<table class="logostrip">
+		<tr>
+			<!-- logo (link to homepage) -->
+			<td class="logoleft">
+				<a href="/"><img src="/img/logo.png" alt="Retro of the Week Logo" /></a>
+			</td>
+			<!-- Categories and search -->
+			<td class="logoright">
+				<!-- login bar -->
+				<div class="loginbar">
+					[loginbar]
+				</div>
+				<div class="categories">
+					<a href="/">Home</a>&nbsp;
+					<a href="/tags/retro/">Retro</a>&nbsp;
+					<a href="/tags/modern/">Modern</a>&nbsp;
+					<a href="/tags/top 10/">Top 10</a>&nbsp;
+					<a href="/tags/other/">Other</a>&nbsp;
+					<a href="/about/">About</a>&nbsp;
+					<a href="http://qualityroms.net/forum/?page=forum&id=14">Forum</a>&nbsp;
+				</div>
+			</td>
+		</tr>
+	</table>
+	<!-- wrapper -->
+    <div id="wrap">
+		<!-- main -->
+		<div id="main" [fullwidth]>
+		

@@ -1,0 +1,20 @@
+			<p>Click an image below to change your skin:</p>
+			<table>
+				<tr>
+					<td>
+						<em>Default (blue)</em><br />
+						<a href="/changestyle?css=default"><img src="/img/skin_prev/default.png" alt="Click here to change to default skin" /></a>
+					</td>
+					<td>
+						<em>Red team</em><br />
+						<a href="/changestyle?css=red"><img src="/img/skin_prev/red.png" alt="Click here to change to red team skin" /></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<em>Megasis</em><br />
+						<a href="/changestyle?css=megasis"><img src="/img/skin_prev/megasis.png" alt="Click here to change to megasis skin" /></a>
+					</td>
+				</tr>
+			</table>
+			

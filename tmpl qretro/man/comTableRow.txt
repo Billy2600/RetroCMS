@@ -1,0 +1,12 @@
+			
+				<tr>
+					<td width="150px" class="msglink">
+						<input type="checkbox" name="com_id[]" value="[cid]" />	
+					</td>
+					<td width="150px" class="msglink">
+						[name]
+					</td>
+					<td class="msglink">
+						<a href="/p/[pid]/#r[cid]/" target="_blank">[text]</a>
+					</td>
+				</tr>

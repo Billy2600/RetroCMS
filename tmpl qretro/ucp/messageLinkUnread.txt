@@ -1,0 +1,9 @@
+			<div class="msglinkunread">
+				<a href="/ucp/msg/[mid]/">[title]</a> - <strong>From:</strong> <a href="/u/[fid]/">[fname]</a> - [date]
+				<!-- delete message button -->
+				<form action="/ucp/" name="delmsg" method="post" class="delmsgbutton">
+					<input type="hidden" name="section" value="delmsg">
+					<input type="hidden" name="mid" value="[mid]" />
+					<input type="submit" value="Delete" />
+				</form>
+			</div>

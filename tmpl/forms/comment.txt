@@ -1,0 +1,16 @@
+	
+	<!-- add comment form -->
+	<div class="com2" id="r[reply]" style="[style]">
+		<div id="replyto"></div>
+		<form name="comment" action="/addcom/" method="post">
+			<input name="post_id" type="hidden" value="[post_id]" />
+			<input name="user_id" type="hidden" value="[user_id]" />
+			<input name="reply" type="hidden" id="replyhidden" value="[reply]" />
+			<div style="[hidename]"><strong>Name:</strong> <input name="name" type="text" value="" /></div>
+			<div class="shazbot"><input name="email" type="text" value="" /></div>
+			<div><textarea name="text" rows="10" cols="50"></textarea></div>
+			[captcha]
+			[msg_reply]
+			<div><span class="replylink" style="[hideclose]"><a href="#" onclick="showHide('r[reply]');return false;" id="r[reply]-hide">Close</a></span> <input type="submit" value="Submit" /></div>
+		</form>
+	</div>

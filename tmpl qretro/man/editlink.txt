@@ -1,0 +1,1 @@
+[<a href="/manage/edit.php?id=[pid]">Edit</a>]

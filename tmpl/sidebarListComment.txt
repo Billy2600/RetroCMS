@@ -1,0 +1,2 @@
+					<li><a href="/p/[pid]/#comment_[cid]">[text]</a></li>
+					

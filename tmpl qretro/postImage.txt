@@ -1,0 +1,1 @@
+<a href="[img]" target="_blank"><img src="[thumb]" alt="[alt]" class="postimg" /></a>

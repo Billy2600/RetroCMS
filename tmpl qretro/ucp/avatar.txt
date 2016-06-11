@@ -1,0 +1,41 @@
+			<!-- disable/enable file/URL input -->
+			<script type="text/javascript">
+				function toggle()
+				{
+					if(document.getElementById('file_check').checked == true)
+					{
+						document.getElementById('av_url').disabled = true;
+						document.getElementById('av_file').disabled = false;
+					}
+					else
+					{
+						document.getElementById('av_url').disabled = false;
+						document.getElementById('av_file').disabled = true;
+					}
+				}
+				</script>
+			<form name="avatar" action="/ucp/" method="post" enctype="multipart/form-data">
+				<div><strong>Current Avatar:</strong></div>
+					<img src="[avatar]" alt="Avatar Not Found" />
+					<table>
+						<tr>
+							<td>
+								<input type="radio" name="itype" value="url" id="url_check" onclick="toggle()"><strong>New Avatar via URL:</strong>
+							</td>
+							<td>
+								<input name="avatar_url" type="text" maxlength="255" size="30" disabled="true" id="av_url" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="radio" name="itype" value="upload" checked="true" id="file_check" onclick="toggle()"><strong>New Avatar via upload:</strong>
+							</td>
+							<td>
+								<input type="file" name="av_file" size="40" id="av_file" />
+							</td>
+						</tr>
+					</table>
+				Max image size is 200 by 200 pixels. Select either URL entry or upload, enter the file based on which input you chose, then hit submit.
+				<div><input type="submit" value="Submit" /></div>
+				<input type="hidden" name="section" value="avatar" />
+			</form>

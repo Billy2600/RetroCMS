@@ -1,0 +1,5 @@
+	<div class="friendslinks">
+		Friends: <br />
+		<a href="http://qualityroms.net/" target="_blank"><img src="/img/qualityroms.png" alt="Quality Roms" /></a>
+		<a href="http://monkeypro.net/" target="_blank"><img src="/img/monkeypro.png" alt="Monkey Productions" /></a>
+	</div>

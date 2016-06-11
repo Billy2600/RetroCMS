@@ -1,0 +1,19 @@
+	<!-- display post -->
+	<div class="post_title">
+		<img src="[avatar]" alt="" class="postav" />
+		<a href="/p/[id]/[canon]/">[title]</a>
+		[editlink]
+	</div>
+	<div class="post_desc">
+		Posted by <a href="/u/[userid]/">[username]</a><br />
+		<em>Posted on [date]</em>
+		[rating]
+	</div>
+	<div class="post_body">
+	<!-- post image, if applicable -->
+	[img]
+	<!-- post body -->
+	[text]
+	[cont]
+	<div class="tags"><a href="/p/[id]/#comments">[com] comment(s)</a> | Tags: [tags] <a href="/print/[id]/"><img class="printicon" src="/img/printer.png" alt="Printer friendly vesrion" /></a></div>
+	</div>

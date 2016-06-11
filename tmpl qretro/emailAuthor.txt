@@ -1,0 +1,3 @@
+<p>Hello <strong>[name]</strong>! This message is from Retro of the Week to tell you that <strong>[composter]</strong> has commented on one of your articles.</p>
+<p>Their comment was: [comtext]</p>
+<p><a href="/p/[post_id]/#comments">Click here</a> to view all of the comments of your post.</p>

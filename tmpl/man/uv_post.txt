@@ -1,0 +1,13 @@
+			<div class="msglink">
+				<a href="/manage/validate.php?view=[pid]">[title]</a> by [user]
+				<!-- delete/deny post button -->
+				<form action="/manage/validate.php" name="deny" method="get" class="delmsgbutton">
+					<input type="hidden" name="deny" value="[pid]">
+					<input type="submit" value="Deny" />
+				</form>
+				<!-- approve post button -->
+				<form action="/manage/validate.php" name="approve" method="get" class="delmsgbutton">
+					<input type="hidden" name="approve" value="[pid]">
+					<input type="submit" value="Approve" />
+				</form>
+			</div>

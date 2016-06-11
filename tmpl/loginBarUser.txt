@@ -1,0 +1,1 @@
+Logged in as <a href="/u/[id]/">[username]</a> - <a href="/ucp/">User CP</a>[manage] - <a href="/lo/">Sign Out</a>

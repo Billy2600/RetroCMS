@@ -1,0 +1,11 @@
+		<div class="post_title">
+			About
+		</div>
+		<div class="post_body">
+			<img width="200px" src="/img/ROTW3d.png" alt="Retro of the Week 3D logo by Aaron Martinez" style="float: left" />
+			<p>They say that a healthy respect for those that came before can help you to appreciate the now.</p>
+			<p>Here at Retro of the Week, we believe in that simple saying. Every week, we take a close look at your favourite classic games of old. We then discuss what was cool, revolutionary and influential about them. Everyone is encouraged to comment and chat about the games, either on the article itself or on the forums of our friends over at <a href="http://qualityroms.net">Quality Roms!</a></p>
+			<p>But we're not limited to just that. Sometimes, we at Retro of the Week delve into more recent fare. Our special Modern of the Month articles come by only every so often, but in them we talk about some stand-out examples of games that matter now and have an impact on the industry right this moment! <i>(when the articles were written, at least)</i></p>
+			<p>And sometimes we just put up what we want, whether it's related to the above or not. Do you have something you want to showcase? We will happily display your work!</p>
+			<p>So come on in to Retro of the Week! All are welcome!! <i>(Yes, even you)</i></p>
+		</div>

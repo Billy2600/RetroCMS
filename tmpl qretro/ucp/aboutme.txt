@@ -1,0 +1,5 @@
+			<form name="aboutme" action="/ucp/" method="post">
+				<textarea rows="15" cols="50" name="text">[text]</textarea><br />
+				<input type="hidden" name="section" value="aboutme" />
+				<input type="submit" value="Submit" />
+			</form>

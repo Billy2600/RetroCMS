@@ -1,0 +1,9 @@
+			<div class="msglink">
+				[ip]
+				<!-- delete ban button -->
+				<form action="/manage/bans.php" name="delban" method="post" class="delmsgbutton">
+					<input type="hidden" name="delban" value="delban">
+					<input type="hidden" name="ip" value="[ip]" />
+					<input type="submit" value="Remove" />
+				</form>
+			</div>

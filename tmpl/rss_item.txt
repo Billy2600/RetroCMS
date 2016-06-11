@@ -1,0 +1,9 @@
+		<item>
+			<title>[title]</title>
+			<link>http://retrooftheweek.net/p/[pid]/</link>
+			[categories]
+			<description>
+				<![CDATA[[desc]]]>
+			</description>
+			<pubDate>[datetime]</pubDate>
+		</item>

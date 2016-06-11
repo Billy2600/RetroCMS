@@ -1,0 +1,25 @@
+		<!-- comment -->
+		<div class="com1" style="[margin]">
+			<!-- avatar -->
+			<img src="[avatar]" alt="" class="postAv" />
+			<!-- poster info -->
+			<div class="composter">
+				<strong>[name]</strong>[edit]<br />
+				[date]
+				[rating]
+			</div>
+			<p>[text]</p>
+			<!-- javascript for the reply form -->
+			<script type="text/javascript">
+			function gotoReply[cid]()
+			{
+				var name = '[name]'; // Name of person we're replying to
+				var cancelReply = "document.getElementById('replyhidden').value=0;document.getElementById('replyto').innerHTML=' '"; // Code for the cancel reply link
+				location.hash = '#addcom';
+				document.getElementById("replyto").innerHTML="Replying to " + name + ' - <a href="#addcom" onclick="' + cancelReply + '">Cancel</a>';
+				document.getElementById("replyhidden").value=[cid];
+			}
+			</script>
+			<!-- <span class="replylink"><a href="#r[cid]" onclick="showHide('r[cid]');return false;" id="r[cid]-show">Reply</a></span> -->
+			<input type="button" value="Reply" onclick="gotoReply[cid]();" />
+		</div>

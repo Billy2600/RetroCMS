@@ -1,0 +1,26 @@
+	<!-- User CP -->
+	<div class="post_title">[title]</div>
+	<div class="ucp_body">
+		<table class="ucp_table">
+			<tr>
+				<td class="ucp_left">
+					<ul>
+						<li class="ucp_title">Messaging</li>
+						<li>- <a href="/ucp/msg/">Messages</a></li>
+						<li>&nbsp;&nbsp;&nbsp; -<a href="/ucp/addmsg/">Compose</a></li>
+						<li class="ucp_title">Account Info</li>
+						<li>- <a href="/ucp/general/">General</a></li>
+						<li>- <a href="/ucp/aboutme/">About Me</a></li>
+						<li>- <a href="/ucp/contact/">Contact Info</a></li>
+						<li>- <a href="/ucp/avatar/">Change Avatar</a></li>
+						<li>- <a href="/ucp/password/">Change Password</a></li>
+						<li>- <a href="/ucp/email/">Change E-mail</a></li>
+						<!-- <li>- <a href="/ucp/changeskin/">Change Skin</a></li> -->
+					</ul>
+				</td>
+				<td class="ucp_right">
+					[form]
+				</td>
+			</tr>
+		</table>
+	</div>

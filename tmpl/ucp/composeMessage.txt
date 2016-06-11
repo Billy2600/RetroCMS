@@ -1,0 +1,23 @@
+			<form name="message" action="/ucp/" method="post">
+				<table>
+					<tr>
+						<td>
+							<strong>To User</strong>:
+						</td>
+						<td>
+							<input name="to" type="text" maxlength="255" size="30" value="[to]" /> <input type="submit" value="Send" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Title</strong>:
+						</td>
+						<td>
+							<input name="title" type="text" maxlength="255" size="30" />
+						</td>
+					</tr>
+				</table>
+				<textarea rows="15" cols="50" name="text">Enter message here</textarea><br />
+				<input type="hidden" name="section" value="addmsg" />
+				<input type="hidden" name="reply" value="0" />
+			</form>

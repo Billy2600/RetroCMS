@@ -1,0 +1,28 @@
+	<div class="post_title">
+		Login
+	</div>
+	<div class="post_body">
+		<form name="login" action="/li/" method="post">
+		<table>
+			<tr>
+				<td>
+					<strong>Username:</strong>
+				</td>
+				<td>
+					<input name="name" type="text" width="200px" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Password:</strong>
+				</td>
+				<td>
+					<input name="pass" type="password" width="200px" />
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="submit" value="true" />
+		<div><input type="submit" value="Submit" /></div>
+		<strong>Note</strong>: This site uses cookies to login.
+		</form>
+	</div>

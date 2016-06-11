@@ -1,0 +1,60 @@
+
+
+	<div id="sidebar">
+		<div id="socialLinks" class="widget">
+			<a href="/rssfeed/"><img src="/img/social/rss.png" alt="RSS Feed"></a>
+			<a href="http://www.facebook.com/RetroOfTheWeek"><img src="/img/social/fb.png" alt="Facebook"></a>
+			<a href="http://gplus.to/QualityRetro"><img src="/img/social/gp.png" alt="Google Plus"></a>
+			<a href="http://steamcommunity.com/groups/qualityroms"><img src="/img/social/steam.png" alt="Steam"></a>
+			<a href="https://twitter.com/retrooftheweek"><img src="/img/social/twit.png" alt="Twitter"></a>
+			<audio preload>
+				<source src="/snd/geep_high.mp3" type="audio/mpeg">
+			</audio>
+			<a href="javascript:PlaySound();"><img src="/img/social/met.png" alt="Squee!"></a>
+			<div class="center" style="width: 75%;">
+			<form name="search" action="/search.php" method="get">
+				<!-- hidden options -->
+				<input type="hidden" name="type" value="tags" />
+				<input type="hidden" name="scope" value="all" />
+				<!-- text entry -->
+				<input type="text" size="15" name="search">
+				<input type="image" src="/img/search.png" alt="Submit">
+			</form>
+			</div>
+		</div>
+
+		<div id="tags" class="widget">
+			<h2 class="sidebar">Categories</h2>
+			<ul>
+				<li><a href="/tags/news/">News</a>
+				</li>
+				<li><a href="/tags/retro/">Retro</a>
+				</li>
+				<li><a href="/tags/modern/">Modern</a>
+				</li>
+				<li><a href="/tags/top%2010/">Top 10</a>
+				</li>
+				<li><a href="/tags/other/">Other</a>
+				</li>
+			</ul>
+		</div>
+		[latest]
+		<div id="forumStuff" class="widget">
+			<h2 class="sidebar">Forums</h2>
+			<ul>
+			[forumPosts]
+			</ul>
+		</div>
+
+		<div id="friends" class="widget">
+			<h2 class="sidebar">Friends</h2>
+			<ul>
+				<li><a href="http://monkeypro.net" target="_blank"><img src="/img/monkeypro.png" alt="Monkey Productions"></a></li>
+				<li><a href="http://www.gamers-tavern.com" target="_blank"><img src="/img/gt.png" alt="Gamers Tavern">
+				</a></li>
+				<li><a href="http://z13.invisionfree.com/EchoNET/" target="_blank"><img src="/img/echonetwork.png" alt="Echo Network" /></a></li>
+				<li><a href="http://qualityroms.net" target="_blank"><img src="/img/qualityroms.png" alt="QualityRoms"></a></li>
+			</ul>
+		</div>
+	</div>
+	

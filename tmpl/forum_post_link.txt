@@ -1,0 +1,1 @@
+				<li><a href="http://qualityroms.net/forum/?page=profile&id=[uid]">[user]</a> posted in <a href="http://qualityroms.net/forum/?page=thread&pid=[pid]#[pid]"><em>[title]</em></a><br></li>

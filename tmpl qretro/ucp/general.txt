@@ -1,0 +1,60 @@
+			<form name="general" action="/ucp/" method="post">
+				<table>
+					<tr>
+						<td>
+							<strong>First Name:</strong>
+						</td>
+						<td>
+							<input name="fname" type="text" maxlength="255" size="30" value="[fname]" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Last Name:</strong>
+						</td>
+						<td>
+							<input name="lname" type="text" maxlength="255" size="30" value="[lname]" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Gender:</strong>
+						</td>
+						<td>
+							<select name="gender">
+								<option value="1"[male]>Male</option>
+								<option value="2"[female]>Female</option>
+								<option value="0"[nogender]>Not Telling</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Birthday:</strong>
+						</td>
+						<td>
+							<select name="day">
+								[days]
+							</select>
+							<select name="month">
+								[months]
+							</select>
+							<select name="year">
+								[years]
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Country:</strong>
+						</td>
+						<td>
+							<select name="country">
+								[countries]
+							</select>
+						</td>
+					</tr>
+				</table>
+				<input type="hidden" name="section" value="general" />
+				<input type="submit" value="Submit" />
+			</form>

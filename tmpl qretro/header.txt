@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<!--
+		Hi there! Billy and Lazlo worked really hard on this site and I hope that it shows!
+		If you can learn from our examples, that's great! I really hope someone see this
+		and applies it for themselves. If not, that's fine, too.
+		
+		If you see any errors, or something could be more convenient, let one of us know
+		Billy: billy2600@qualityretro.net
+		Lazlo: headhoncho@qualityroms.net
+	-->
+		<title>[title]QualityRetro!</title>
+	<link href="/styles/creamsicle.css" rel="stylesheet" type="text/css">	
+	<meta name="description" content="[desc]">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<meta name="keywords" content="Retro of the Week, Retro, video games, video, games, gaming, 8-bit, 16-bit, modern games" />
+	<meta name="author" content="Robert D Herb" />
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+	<!-- show/hide content, from http://www.cssnewbie.com/showhide-content-css-javascript/ -->
+	<script type="text/javascript">
+	function showHide(shID) {
+		if (document.getElementById(shID)) {
+			if (document.getElementById(shID+'-show').style.display != 'none') {
+				document.getElementById(shID+'-show').style.display = 'none';
+				document.getElementById(shID).style.display = 'block';
+			}
+			else {
+				document.getElementById(shID+'-show').style.display = 'inline';
+				document.getElementById(shID).style.display = 'none';
+			}
+		}
+	}
+	</script>
+	<!-- play sound effects -->
+	<script type="text/javascript">
+		function PlaySound(soundfile)
+		{
+			var v = document.getElementsByTagName("audio")[0];
+			v.play();
+		}
+	</script>
+	
+	<!-- google analytics -->
+	
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-30333746-3', 'qualityretro.net');
+		ga('send', 'pageview');
+
+	</script>
+	
+	<!-- up up down down left right left right a b enter -->
+	
+	<script type="text/javascript" src="http://konami-js.googlecode.com/svn/trunk/konami.js"></script>
+	<script type="text/javascript">
+	konami = new Konami()
+	konami.load("/changeskin/win95/")
+	</script>
+	
+</head>
+
+<body>
+
+<div id="logUser">
+	[loginbar]
+</div>
+
+<div id="header">
+	<a href="http://qualityretro.net/"><img src="/img/logostrip.png" alt="QualityRetro" style="margin:0;" /></a>
+	<ul id="nav">
+		<li><a href="/">Home</a></li>
+		<li><a href="/about/">About</a></li>
+		<li><a href="/submitpost/">Submit</a></li>
+		<li><a href="/forum/">Forum!</a></li>
+	</ul>
+</div>
+
+<div id="wrapper">
+
+	<div id="contentWrapper" [fullwidth]>

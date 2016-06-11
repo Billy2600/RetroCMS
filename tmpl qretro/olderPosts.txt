@@ -1,0 +1,5 @@
+
+
+			<div class="oldPosts">
+				<a href="[url][start]">&laquo; Older posts</a>
+			</div>

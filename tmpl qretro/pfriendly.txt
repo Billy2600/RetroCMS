@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+	<head>
+		<title>QualityRetro! - [title] - Printer Friendly</title>
+		<style type="text/css">
+		* {
+			margin:0;
+			padding:0;
+			border:0;
+		} 
+
+		html {
+			padding: 0px;
+			margin: 0px;
+		}
+		body {
+			font-family: Arial, Verdana, Georgia;
+			font-size: 13px;
+			color: #000;
+			background-color: #FFF;
+			padding: 0.5%;
+		}
+		.postimg {
+			float: left;
+		}
+		p, h1, h2, h3 {
+			margin-bottom: 10px;
+		}
+		h1 {
+			font-size: 200%;
+		}
+		h2 {
+			font-size: 150%;
+		}
+		h3 {
+			font-size: 105%;
+			border-bottom: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+	<h1>[title]</h1>
+	<h2>Posted by [username] on [date]</h2>
+	<h3>Tags: [tags]</h3>
+	[img]
+	[text]
+	</body>
+</html>

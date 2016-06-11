@@ -1,0 +1,2 @@
+
+			<div class="up_row"><a href="/ucp/addmsg/[username]/">PM this user</a></div>

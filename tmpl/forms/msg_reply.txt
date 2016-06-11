@@ -1,0 +1,1 @@
+<div><input type="checkbox" name="msg_reply" value="true"[checked] /> Send me a PM if someone replies to this comment</div>

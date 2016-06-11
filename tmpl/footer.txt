@@ -1,0 +1,12 @@
+	[sidebar]
+	</div>
+		<!-- end sidebar -->
+		<!-- footer -->
+		<div id="footer">
+			<span id="dummy"></span>
+		</div>
+		<!-- end footer -->
+    </div>
+	<!-- end wrapper -->
+</body>
+</html>
