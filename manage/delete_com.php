@@ -61,7 +61,7 @@ if(isset($_POST['com_id']))
 	if(isset($_POST['ban']))
 		$txt .= "and users banned, ";
 	$txt .=  'now redirecting to manage main page, or click <a href="/manage/">here</a>.';
-	htmlHeader("Comments Deleted - ");
+	htmlHeader("Comments Deleted");
 	displayMessage($txt,"redirect","/manage/");
 	htmlFooter();
 }
@@ -72,12 +72,12 @@ elseif(isset($_GET['id']))
 	$post = new posts();
 	if(!$post->checkPostExistsID($_GET['id']))
 	{
-		htmlHeader("Error - ");
+		htmlHeader("Error");
 		displayMessage("Post with that ID does not exist!","goback");
 		htmlFooter();
 		die();
 	}
-	htmlHeader("Showing Comments for post ID ".$_GET['id']." - ");
+	htmlHeader("Showing Comments for post ID ".$_GET['id']."");
 	// Display admin options if we are one
 	$adminOptions = getAdminOptions();
 	// Beginning of form, top of the table
@@ -118,7 +118,7 @@ elseif(isset($_GET['id']))
 // Display enter ID form
 else
 {
-	htmlHeader("Enter Post ID - ");
+	htmlHeader("Enter Post ID");
 	// Display admin options if we are one
 	$adminOptions = getAdminOptions();
 	// Get current user's latest posts

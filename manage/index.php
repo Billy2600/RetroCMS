@@ -34,7 +34,7 @@ mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
 checkLoginAdminEditor();
 
 // Display manage main page
-htmlHeader("Management Panel - ");
+htmlHeader("Management Panel");
 // Display admin options if we are one
 $adminOptions = getAdminOptions();
 // Get main page text

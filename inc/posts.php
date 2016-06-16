@@ -171,17 +171,14 @@ class posts extends handleData
 		// Check if post does not exist
 		if(count($post) == 0)
 		{
-			htmlHeader("Error - ");
+			htmlHeader("Error");
 			displayMessage("Post with that ID does not exist","goback");
 			htmlFooter();
 			// Stop here
 			die();
 		}
 		// Display header
-		if(ROTW == "true")
-			htmlHeader(" - ".$post[0][1]); // Gotta put the title in there, for the title bar
-		else
-			htmlHeader($post[0][1]." - ");
+		htmlHeader($post[0][1]); // Gotta put the title in there, for the title bar
 			
 		// Display post
 		$postData = $this->setUpPostData($post[0]);

@@ -38,7 +38,7 @@ $user_id = $session->getUserIdFromSession();
 // Check if ID is set, if not display enter ID form/latest posts
 if(!isset($_GET['id']) && !isset($_POST['confirmed']))
 {
-	htmlHeader("Enter Post ID - ");
+	htmlHeader("Enter Post ID");
 	// Display admin options if we are one
 	$adminOptions = getAdminOptions();
 	// Get current user's latest posts
@@ -73,7 +73,7 @@ if(isset($_POST['confirmed']))
 	$post = new posts(array("pid"));
 	$post->deletePost($_GET['pid']);
 	
-	htmlHeader("Post Deleted - ");
+	htmlHeader("Post Deleted");
 	displayMessage("Post has been deleted! Now redirecting back to manage home or click <a href=\"/manage/\">here</a>","redirect","/manage/");
 	htmlFooter();
 }
@@ -88,7 +88,7 @@ else
 	checkPostOwnership($_GET['id'],$user_id);
 	
 	// Display form
-	htmlHeader("Management Panel - Delete Post #".$_GET['id']." - ");
+	htmlHeader("Management Panel - Delete Post #".$_GET['id']."");
 	
 	// Are you sure you want to delete this post?
 	$text = 'WARNING: Deleting this post will <strong>permanently</strong> delete this post and all the comments attched to it. Are you sure you want to delete this?';

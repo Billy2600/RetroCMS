@@ -33,7 +33,7 @@ mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
 // Function to display error
 function displayError($text)
 {
-	htmlHeader("Regisration Error - ");
+	htmlHeader("Regisration Error");
 	displayMessage($text,"goback");
 	htmlFooter();
 	die();

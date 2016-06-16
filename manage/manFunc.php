@@ -70,7 +70,7 @@ function checkPostExistence($postID)
 	$postExists = $post->checkPostExistsID($postID);
 	if($postExists == false)
 	{
-		htmlHeader("Error - ");
+		htmlHeader("Error");
 		displayMessage("Post with that ID does not exist!","goback");
 		htmlFooter();
 		die();
@@ -93,7 +93,7 @@ function checkPostOwnership($pid,$uid)
 		$poster = $post->dbOutput(array("pid","=".$pid));
 		if($poster[0][0] != $uid)
 		{
-			htmlHeader("Error - ");
+			htmlHeader("Error");
 			displayMessage("That post doesn't belong to you!","goback");
 			htmlFooter();
 			// stop here

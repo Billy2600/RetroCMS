@@ -62,17 +62,14 @@ class users extends handleData
 		// Check if user does not exist
 		if(count($user) == 0)
 		{
-			htmlHeader("Error - ");
+			htmlHeader("Error");
 			displayMessage("User with that ID does not exist","goback");
 			htmlFooter();
 			// Stop here
 			die();
 		}
 		// Display header
-		if(ROTW == "true")
-			htmlHeader(" - Viewing User ".$user[0][0]); // Gotta put the title in there, for the title bar
-		else
-			htmlHeader("Viewing User ".$user[0][0]." - ");
+		htmlHeader("Viewing User ".$user[0][0]); // Gotta put the title in there, for the title bar
 		
 		// Set up data for outputing
 		// Change gender ID into character
@@ -165,7 +162,7 @@ class users extends handleData
 		// Throw error if we get nothing back
 		if(empty($userInfo))
 		{
-			htmlHeader("Error - ");
+			htmlHeader("Error");
 			displayMessage("No user with that name was found","goback");
 			htmlFooter();
 			return false;
@@ -184,7 +181,7 @@ class users extends handleData
 		// Password did not match
 		else
 		{
-			htmlHeader("Error - ");
+			htmlHeader("Error");
 			displayMessage("Password was incorrect","goback");
 			htmlFooter();
 			return false;

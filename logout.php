@@ -35,7 +35,7 @@ if($session->checkValid())
 	// Log them out
 	$session->remove();
 	// Display success message
-	htmlHeader("Now Logged Out - ");
+	htmlHeader("Now Logged Out");
 	displayMessage("You are now logged out. Redirecting, or <a href=\"/\">click here</a>","redirect","/");
 	htmlFooter();
 }

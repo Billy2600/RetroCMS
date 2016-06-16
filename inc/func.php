@@ -143,6 +143,13 @@ function htmlHeader($title = "", $forceSideBar = false)
 		$title = substr($title,-20);
 	if(substr(strtolower($title),0,18) == "retro of the week:")
 		$title = substr($title,-18);
+
+	// Add seperator to title, if applicable
+	if($title != "")
+	{
+		$title .= " - ";
+	}
+
 	//Give main section full width if we're not on the index
 	if( $_SERVER["PHP_SELF"] == "/index.php" || $_SERVER["PHP_SELF"] == "/post.php" ||
 		$_SERVER["PHP_SELF"] == "/search.php" || $forceSideBar == true )
@@ -354,7 +361,7 @@ function uploadImage($input_file,$thumb=true,$max_upload_width=150,$max_upload_h
 		$image_source = imagecreatefrompng($input_file["tmp_name"]);
 		break;
 	default:
-		htmlHeader("Error - ");
+		htmlHeader("Error");
 		displayMessage("Error: No image specified!","goback");
 		htmlFooter();
 		die();

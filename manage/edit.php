@@ -38,7 +38,7 @@ $user_id = $session->getUserIdFromSession();
 // Check if ID is set, if not display enter ID form/latest posts
 if(!isset($_GET['id']) && !isset($_POST['submit']))
 {
-	htmlHeader("Enter Post ID - ");
+	htmlHeader("Enter Post ID");
 	// Display admin options if we are one
 	$adminOptions = getAdminOptions();
 	// Get current user's latest posts
@@ -123,7 +123,7 @@ if(isset($_POST['submit']))
 	// Insert data
 	$post->dbUpdate($data,"pid",$_POST['pid']);
 	// Display success message/redirect
-	htmlHeader("Post Edited - ");
+	htmlHeader("Post Edited");
 	displayMessage("Post has been Edited! Now redirecting to it, or click <a href=\"/p/".$_POST['pid']."/\">Here</a>","redirect","/p/".$_POST['pid']."/");
 	htmlFooter();
 }
@@ -143,7 +143,7 @@ else
 	$post->changeFields($fields);
 	$data = $post->dbOutput(array("pid","=".$_GET['id']));
 	// Display form
-	htmlHeader("Management Panel - Edit Post #".$_GET['id']." - ");
+	htmlHeader("Management Panel - Edit Post #".$_GET['id']."");
 	// Display admin options if we are one
 	$adminOptions = getAdminOptions();
 	// Retrieve form HTML

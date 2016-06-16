@@ -182,7 +182,7 @@ class comments extends handleData
 	}
 	
 	// Does this comment ID want to be notified of replies?
-	// Postcondition: Returns true if the scecified ID wants to notify the poster if you have relpied to it
+	// Postcondition: Returns true if the specified ID wants to notify the poster if you have relpied to it
 	public function wantReplyNotify($cid)
 	{
 		parent::changeFields(array("msg_reply"));

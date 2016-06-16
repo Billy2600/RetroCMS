@@ -57,7 +57,7 @@ if(isset($_POST['submit']))
 	// Do not allow user to enter no text
 	if($_POST['text'] == "" || $_POST['text'] == " ")
 	{
-		htmlHeader("Error - ");
+		htmlHeader("Error");
 		displayMessage("No text entered!","goback");
 		htmlFooter();
 		die();
@@ -94,14 +94,14 @@ if(isset($_POST['submit']))
 	// Convert outputted array to single variable
 	$newPost = $newPostArray[0][0];
 	// Display success message/redirect
-	htmlHeader("Post Added - ");
+	htmlHeader("Post Added");
 	displayMessage("Post has been added! Now redirecting to it, or click <a href=\"/p/$newPost/\">Here</a>","redirect","/p/$newPost/");
 	htmlFooter();
 }
 // Post not set, Display manage main page
 else
 {
-	htmlHeader("Management Panel - Add Post - ");
+	htmlHeader("Management Panel - Add Post");
 	// Display admin options if we are one
 	$adminOptions = getAdminOptions();
 	// Retrieve form HTML

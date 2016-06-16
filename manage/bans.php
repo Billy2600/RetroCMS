@@ -43,14 +43,14 @@ if(isset($_GET['addban']))
 	// Check for empty IP input
 	if(empty($_GET['ip']))
 	{
-		htmlHeader("Error - ");
+		htmlHeader("Error");
 		displayMessage("No IP address specified!","goback");
 		htmlFooter();
 		die();
 	}
 	addBan($_GET['ip']);
 	// Display success message
-	htmlHeader("Ban Added - ");
+	htmlHeader("Ban Added");
 	$txt = 'Ban successfully added, now redirecting back to ban page or click <a href="/manage/bans">here</a>.';
 	displayMessage($txt,"redirect","/manage/bans/");
 	htmlFooter();
@@ -66,7 +66,7 @@ elseif(isset($_POST['delban']))
 	$fp = fopen('../.htaccess', 'w');
 	fwrite($fp, $contents);
 	// Display success message
-	htmlHeader("Ban Removed - ");
+	htmlHeader("Ban Removed");
 	$txt = 'Ban successfully removed, now redirecting back to ban page or click <a href="/manage/bans">here</a>.';
 	displayMessage($txt,"redirect","/manage/bans/");
 	htmlFooter();
@@ -86,7 +86,7 @@ else
 	// Put what's left over into an array
 	$banned_ips = explode("\n",$contents);
 	
-	htmlHeader("Bans - ");
+	htmlHeader("Bans");
 	// Display admin options if we are one
 	$adminOptions = getAdminOptions();
 	$form = ""; // Initialize form string

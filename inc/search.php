@@ -34,7 +34,7 @@ checkLogin();
 if(isset($_GET['q']))
 {
 	// Display header
-	htmlHeader("Search in Progress - ");
+	htmlHeader("Search in Progress");
 	// display search form with data entered, if hideform isn't set
 	if(!isset($_GET['hideform']))
 	{
@@ -90,7 +90,7 @@ elseif(isset($_GET['tags']))
 {
 	$searchPosts = new posts();
 	// Header
-	htmlHeader("Search for tags:".$_GET['tags']." - ");
+	htmlHeader("Search for tags:".$_GET['tags']);
 	// $start not required
 	if(isset($_GET['start'])) $start = $_GET['start'];
 	else $start = NULL;
@@ -102,7 +102,7 @@ elseif(isset($_GET['tags']))
 // No search entered, display search form
 else
 {
-	htmlHeader("Search - "); // display header
+	htmlHeader("Search"); // display header
 	// Display search form with default data
 	$replace = array("q","tags","title","post","single","all");	
 	$data = array("(Separate search terms with commas. e.g.: this is term 1, term 2)","selected=\"selected\"",

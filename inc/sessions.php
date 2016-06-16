@@ -42,7 +42,7 @@ class sessions extends handleData
 		// Check login
 		if($user->checkLogin($name,$pass) == false)
 		{
-			htmlHeader("Error - ");
+			htmlHeader("Error");
 			displayMessage("User name or password is incorrect","goback");
 			htmlFooter();
 			die();

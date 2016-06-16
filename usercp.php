@@ -78,7 +78,7 @@ if(isset($_POST['section']))
 				$size = getimagesize($_POST['avatar_url']);
 				if($size[0] > 200 || $size[1] > 200)
 				{
-					htmlHeader("User CP - Error - ");
+					htmlHeader("User CP - Error");
 					displayMessage("Error: Image is too large!","goback");
 					htmlFooter();
 					die();
@@ -93,7 +93,7 @@ if(isset($_POST['section']))
 				break;
 			default:
 				// Unknown input type, display error and die
-				htmlHeader("User CP - Error - ");
+				htmlHeader("User CP - Error");
 				displayMessage("Error: Unknown input type.","goback");
 				htmlFooter();
 				die();
@@ -110,7 +110,7 @@ if(isset($_POST['section']))
 			// Make sure passwords match
 			if($_POST['pass'] != $_POST['conpass'])
 			{
-				htmlHeader("User CP - Error - ");
+				htmlHeader("User CP - Error");
 				displayMessage("Error: Passwords did not match!","goback");
 				htmlFooter();
 				die();
@@ -119,7 +119,7 @@ if(isset($_POST['section']))
 			$encPass = $user->encryptPass($user_id,$_POST['pass']);
 			$user->changeFields(array("password"));
 			$user->dbUpdate(array($encPass),"uid",$user_id);
-			htmlHeader("User CP - Success! ");
+			htmlHeader("User CP - Success!");
 			displayMessage("Password has been changed. Redirecting back to user control panel, or click <a href=\"/ucp/\">here</a>","redirect","/logout/");
 			htmlFooter();
 			// Do not continue
@@ -130,7 +130,7 @@ if(isset($_POST['section']))
 			// Make sure emails match
 			if($_POST['email'] != $_POST['conemail'])
 			{
-				htmlHeader("User CP - Error - ");
+				htmlHeader("User CP - Error");
 				displayMessage("Error: E-mails did not match!","goback");
 				htmlFooter();
 				die();
@@ -143,7 +143,7 @@ if(isset($_POST['section']))
 			$message = new messages();
 			$message->sendMessage($_POST['text'],$_POST['title'],$_POST['to'],intval($user_id),intval($_POST['reply']));
 			// Display success message
-			htmlHeader("User CP - Message Sent - ");
+			htmlHeader("User CP - Message Sent");
 			displayMessage("Message has been sent! Now redirecting to inbox, or click <a href=\"/ucp/msg/\">here</a>.","redirect","/ucp/msg/");
 			htmlFooter();
 			// Do not continue
@@ -156,13 +156,13 @@ if(isset($_POST['section']))
 			$result = $message->deleteMessage($_POST['mid']);
 			if($result == true)
 			{
-				htmlHeader("User CP - Message Deleted - ");
+				htmlHeader("User CP - Message Deleted");
 				displayMessage("Message deleted! Redirecting back to message list, or click <a href=\"/ucp/msg/\">Here</a>","redirect","/ucp/msg/",0);
 				htmlFooter();
 			}
 			else // Display error
 			{
-				htmlHeader("User CP - Error - ");
+				htmlHeader("User CP - Error");
 				displayMessage($result,"goback");
 				htmlFooter();
 			}
@@ -171,13 +171,13 @@ if(isset($_POST['section']))
 			break;
 		// Default: error statement
 		default:
-			htmlHeader("User CP - Error - ");
+			htmlHeader("User CP - Error");
 			displayMessage("Invalid User CP section!","goback");
 			htmlFooter();
 			die();
 	}
 	// General success message, must specify die() if you don't want this to show up.
-	htmlHeader("User CP - Success! ");
+	htmlHeader("User CP - Success!");
 	displayMessage("User info has been updated. Redirecting to UCP main page, or click <a href=\"/ucp/\">here</a>","redirect","/ucp/");
 	htmlFooter();
 	// Do not continue
@@ -187,7 +187,7 @@ if(isset($_POST['section']))
 // Is do set
 if(!isset($_GET['do'])) // Do is not set, display main page
 {
-	htmlHeader("User CP - ");
+	htmlHeader("User CP");
 	htmlOutput("tmpl/ucp/main.txt",array("title","form"),array("User Control Panel","Welcome to the User CP! It finally works! Select a section from the left panel."));
 	htmlFooter();
 }
@@ -198,7 +198,7 @@ else
 	{
 		// General
 		case "general":
-			htmlHeader("User CP - General Information - ");
+			htmlHeader("User CP - General Information");
 			// Set up the form
 			$user = new users(array("fname","lname","gender","birthday","country"));
 			$userInfo = $user->dbOutput(array("uid","=".$user_id));
@@ -271,7 +271,7 @@ else
 			break;
 		// About me
 		case "aboutme":
-			htmlHeader("User CP - About Me - ");
+			htmlHeader("User CP - About Me");
 			// Set up the form
 			$user = new users(array("aboutme"));
 			$text = $user->dbOutput(array("uid","=".$user_id));
@@ -282,7 +282,7 @@ else
 			break;
 		// contact info
 		case "contact":
-			htmlHeader("User CP - About Me - ");
+			htmlHeader("User CP - About Me");
 			// Set up the form
 			$user = new users(array("skype","msn","yahoo","aim","steam"));
 			$contactInfo = $user->dbOutput(array("uid","=".$user_id));
@@ -293,7 +293,7 @@ else
 			break;
 		// Change avatar
 		case "avatar":
-			htmlHeader("User CP - Change Avatar - ");
+			htmlHeader("User CP - Change Avatar");
 			// Set up the form
 			$user = new users(array("avatar"));
 			$text = $user->dbOutput(array("uid","=".$user_id));
@@ -304,14 +304,14 @@ else
 			break;
 		// Change password
 		case "password":
-			htmlHeader("User CP - Change Password - ");
+			htmlHeader("User CP - Change Password");
 			$form = htmlOutput("tmpl/ucp/password.txt",false,false,true);
 			htmlOutput("tmpl/ucp/main.txt",array("title","form"),array("User CP - Change Password",$form));
 			htmlFooter();
 			break;
 		// Change e-mail
 		case "email":
-			htmlHeader("User CP - Change E-mail Address - ");
+			htmlHeader("User CP - Change E-mail Address");
 			// Set up the form
 			$user = new users(array("email"));
 			$text = $user->dbOutput(array("uid","=".$user_id));
@@ -326,7 +326,7 @@ else
 			if(isset($_GET['mid']))
 			{
 				// Display specific message
-				htmlHeader("User CP - Display Message - ");
+				htmlHeader("User CP - Display Message");
 				$message = new messages();
 				$form = $message->displayMessage($_GET['mid']);
 				htmlOutput("tmpl/ucp/main.txt",array("title","form"),array("User CP - Display Message",$form));
@@ -335,7 +335,7 @@ else
 			// Display Message list
 			else 
 			{
-				htmlHeader("User CP - Message Inbox - ");
+				htmlHeader("User CP - Message Inbox");
 				$messages = new messages();
 				// Display messages for current user
 				$form = $messages->displayMessageList($user_id);
@@ -346,7 +346,7 @@ else
 		// Add message
 		case 'addmsg':
 			// Display compose message form
-			htmlHeader("User CP - Compose Message - ");
+			htmlHeader("User CP - Compose Message");
 			// Put in to if the get is set
 			if(isset($_GET['to']))
 				$to = $_GET['to'];
@@ -359,7 +359,7 @@ else
 		// Change skin
 		case 'changeskin':
 			// Display change skin form
-			htmlHeader("User CP - Change Skin - ");
+			htmlHeader("User CP - Change Skin");
 			// Put in to if the get is set
 			if(isset($_GET['to']))
 				$to = $_GET['to'];
@@ -371,7 +371,7 @@ else
 			break;
 		// Default: error statement
 		default:
-			htmlHeader("User CP - Error - ");
+			htmlHeader("User CP - Error");
 			displayMessage("Invalid User CP section!","goback");
 			htmlFooter();
 	}

@@ -50,7 +50,7 @@ class messages extends handleData
 			$checkUser = new users();
 			if($checkUser->checkUserName($to) == false)
 			{
-				htmlHeader("Error - ");
+				htmlHeader("Error");
 				displayMessage("No user with that name exists!","goback");
 				htmlFooter();
 				die();

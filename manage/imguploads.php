@@ -107,7 +107,7 @@ else
 	}
 	
 	// Print everything out
-	htmlHeader("Management Panel - Upload Images - ");
+	htmlHeader("Management Panel - Upload Images");
 	if(isset($_GET['id']))
 		$id = $_GET['id']; // Prevent undefined ID error
 	else

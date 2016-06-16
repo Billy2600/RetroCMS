@@ -45,14 +45,14 @@ else
 		$session->create($_POST['name'],$_POST['pass']);
 		
 		// Display success message
-		htmlHeader("Now Logged In - ");
+		htmlHeader("Now Logged In");
 		displayMessage("You are now logged in. Redirecting, or <a href=\"/\">click here</a>","redirect","/");
 		htmlFooter();
 	}
 	// Form not used yet, display form
 	else
 	{
-		htmlHeader("Login - ");
+		htmlHeader("Login");
 		htmlOutput("./tmpl/forms/login.txt");
 		htmlFooter();
 	}

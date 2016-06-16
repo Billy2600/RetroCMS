@@ -41,7 +41,7 @@ if(isset($_GET['id']))
 	// Check if post does not exist
 	if(count($post) == 0)
 	{
-		htmlHeader("Error - ");
+		htmlHeader("Error");
 		displayMessage("Post with that ID does not exist","goback");
 		htmlFooter();
 		// Stop here
@@ -54,7 +54,7 @@ if(isset($_GET['id']))
 }
 else
 {
-	htmlHeader("Error - ");
+	htmlHeader("Error");
 	echo displayMessage("No post ID specified!","goback");
 	htmlFooter();
 }

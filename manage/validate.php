@@ -48,7 +48,7 @@ if(isset($_GET['deny']))
 	// Display confirmation
 	if(!isset($_POST['confirmed']))
 	{
-		htmlHeader("Deny confirmation - ");
+		htmlHeader("Deny confirmation");
 		// Are you sure you want to delete this post?
 		$text = 'WARNING: Denying this post will delete it, and it <strong>cannot</strong> be recovered. Are you sure?';
 		displayMessage($text,"confirm","/manage/validate.php?deny=".$_GET['deny']);
@@ -80,7 +80,7 @@ else if(isset($_GET['approve']))
 	// Display confirmation
 	if(!isset($_POST['confirmed']))
 	{
-		htmlHeader("Approval confirmation - ");
+		htmlHeader("Approval confirmation");
 		// Are you sure you want to approve this post?
 		displayMessage('Are you sure you want to approve this post?',"confirm","/manage/validate.php?approve=".$_GET['approve']);
 		htmlFooter();
@@ -130,7 +130,7 @@ else if(isset($_GET['approve']))
 		// Delete entry from uvposts table
 		$uvPosts->deleteData( "pid",(int)$_GET['approve'] );
 		// Print success message
-		htmlHeader("Success - ");
+		htmlHeader("Success");
 		displayMessage("Post has been successfully validated. $extra Redirecting, or click <a href=\"/manage/validate.php\">here<a/>.","redirect","/manage/validate.php", 5);
 		htmlFooter();
 	}
@@ -145,7 +145,7 @@ else if(isset($_GET['view']))
 // Display unvalidated posts
 else
 {
-	htmlHeader("Unvalidated Posts - ");
+	htmlHeader("Unvalidated Posts");
 	// Display admin options if we are one
 	$adminOptions = getAdminOptions();
 	

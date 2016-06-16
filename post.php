@@ -40,7 +40,7 @@ if(isset($_GET['id']))
 }
 else
 {
-	htmlHeader("Error - ");
+	htmlHeader("Error");
 	echo displayMessage("No post ID specified!","goback");
 	htmlFooter();
 }

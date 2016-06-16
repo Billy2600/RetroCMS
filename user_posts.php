@@ -61,7 +61,7 @@ if( isset( $_GET["id"] ) )
 }
 else
 {
-	htmlHeader( "Error - " );
+	htmlHeader( "Error" );
 	displayMessage( "No user specified", "goback" );
 	htmlFooter();
 }
