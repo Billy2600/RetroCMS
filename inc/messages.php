@@ -2,7 +2,7 @@
 // ******************************************************
 // Description: Class to handle all message data, outputing
 // it, inputing, modifying, etc. all the special cases
-// This class inherits from handleData
+// This class inherits from database
 //
 // This file is part of RetroCMS.
 //
@@ -22,10 +22,10 @@
 // *******************************************************
 
 // Required files
-require_once "handleData.php";
+require_once "database.php";
 require_once "users.php";
 
-class messages extends handleData
+class messages extends database
 {
 	// CONSTRUCTOR
 	// Sets the field array based on a parameter, fields are usually not required

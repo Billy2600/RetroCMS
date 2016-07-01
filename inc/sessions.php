@@ -22,10 +22,10 @@
 // *******************************************************
 
 // Required files
-require_once "handleData.php";
+require_once "database.php";
 require_once "users.php";
 
-class sessions extends handleData
+class sessions extends database
 {
 	// CONSTRUCTOR
 	function __construct($fld = array("sid","userid","ip_address","date"))

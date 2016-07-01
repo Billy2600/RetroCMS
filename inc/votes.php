@@ -2,7 +2,7 @@
 // ******************************************************
 // Description: Class to handle the voting system, that is
 // thumbs up/down votes on articles
-// This class inherits from handleData
+// This class inherits from database
 //
 // This file is part of RetroCMS.
 //
@@ -25,7 +25,7 @@
 require_once "posts.php";
 require_once "comments.php";
 
-class votes extends handleData
+class votes extends database
 {
 	// Constructor
 	// Sets the table and fields

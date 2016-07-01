@@ -2,7 +2,7 @@
 // ******************************************************
 // Description: Class to handle all post data, outputing
 // it, inputing, modifying, etc. all the special cases
-// This class inherits from handleData
+// This class inherits from database
 //
 // This file is part of RetroCMS.
 //
@@ -22,12 +22,12 @@
 // *******************************************************
 
 // Required files
-require_once "handleData.php";
+require_once "database.php";
 require_once "users.php";
 require_once "comments.php";
 require_once "votes.php";
 
-class posts extends handleData
+class posts extends database
 {
 	// PRIVATE
 	// Set up post data for displaying
@@ -36,7 +36,7 @@ class posts extends handleData
 	// If you'd like to set a cutoff for posts, set $cutoff to the maximum amount of characters you'd like to show
 	// CUTOFF NOTE: If [[cutoff]] (case insensitive) exists in a post, the amount you enter will be ignored. You can
 	// force it by setting $forceCutOff to true
-	public function setUpPostData($data,$cutoff = false,$forceCutOff = false)
+	public function setUpPostData($data,$cutoff = false,$forceCutOff = false, $noHTML = false)
 	{
 		// Logged in info
 		$session = new sessions();
@@ -68,11 +68,11 @@ class posts extends handleData
 		$data[2] = stripslashes($data[2]);
 		
 		// If image is not null, make it an image tag, from template, and remove thumb from array
-		if($data[5] != NULL && $data[5] != "NULL")
+		if($data[5] != NULL && $data[5] != "NULL" && !$noHTML)
 		{
 			$img = $data[5]; // temp varible for image url
 			$data[5] = htmlOutput("./tmpl/postImage.txt",array("img","thumb","alt"),
-				array($img,$data[6],$data[1]),true);
+				array($img,$data[6],$data[1]),true);		
 		}
 		// Get user info, if applicable
 		$user = new users(array("avatar","username"));
@@ -540,5 +540,40 @@ class posts extends handleData
 		}
 		// Put it back in
 		$this->dbUpdate( array( $oldVal ),"pid",$post_id );
+	}
+
+	public function apiDisplayPost($id)
+	{
+		// Login info
+		$session = new sessions();
+		$loggedIn = $session->checkValid();
+		$user_id = $session->getUserIdFromSession();
+		
+		// Re-set the fields
+		$this->changeFields(array("pid","title","text","date","tags","img","thumb","poster_id"));
+		$post = $this->dbOutput(array("pid","=$id"));
+		// Check if post does not exist
+		if(count($post) == 0)
+		{
+			apiPrintError("Post with that ID does not exist");
+		}
+
+		// Get post data
+		$postData = $this->setUpPostData($post[0],false,false,true);
+
+		// Build array
+		$arr = array(
+			"id" => $postData[1][0],
+			"title" => $postData[1][1],
+			"text" => strip_tags($postData[1][2]),
+			"date" => $postData[1][3],
+			"tags" => strip_tags($postData[1][4]),
+			"img" => $postData[1][5],
+			"userid" => $postData[1][7],
+			"avatar" => $postData[1][8],
+			"username" => $postData[1][9]
+		);
+		// Output encoded
+		echo json_encode($arr);
 	}
 }

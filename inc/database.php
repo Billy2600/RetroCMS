@@ -20,7 +20,7 @@
 // along with RetroCMS.  If not, see <http://www.gnu.org/licenses/>.
 // Copyright 2016 William McPherson
 // *******************************************************
-class handleData
+class database
 {
 	// PRIVATE
 	

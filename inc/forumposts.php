@@ -22,7 +22,7 @@
 // Required files
 require_once "config.php";
 require_once "func.php";
-require_once "handleData.php";
+require_once "database.php";
 
 $LIMIT = 5; // The number of forum posts this will show
 
@@ -32,9 +32,9 @@ mysql_connect("","","",true);
 @mysql_select_db("") or die("Unable to select database");
 
 // Get latest forum posts
-$forumPostObj = new handleData("posts",array("id","thread","user"),true); // Post information
-$forumThreads = new handleData("threads",array("title"),true); // Thread information
-$forumUsers = new handleData("users",array("id","name"),true); // User information
+$forumPostObj = new database("posts",array("id","thread","user"),true); // Post information
+$forumThreads = new database("threads",array("title"),true); // Thread information
+$forumUsers = new database("users",array("id","name"),true); // User information
 $forumPosts = ""; // Init output string
 
 // Get latest posts

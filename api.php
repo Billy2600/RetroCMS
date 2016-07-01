@@ -1,8 +1,6 @@
 <?php
-/* ***************************************************
-// Description: Include the configuration file
-// This makes it easier to include in files that reference
-// config.php in more than one location
+// ******************************************************
+// Description: This file outputs api requests as json data
 //
 // This file is part of RetroCMS.
 //
@@ -19,6 +17,31 @@
 // You should have received a copy of the GNU General Public License
 // along with RetroCMS.  If not, see <http://www.gnu.org/licenses/>.
 // Copyright 2016 William McPherson
-// **************************************************/
-require_once "../config.php";
+// *******************************************************
+require_once "config.php";
+require_once $incPath."/func.php";
+require_once $incPath."/posts.php";
+
+mysql_connect(DB_HOST,DB_USER,DB_PASS);
+@mysql_select_db(DB_NAME) or die("Unable to select database");
+
+// What kind of request do we want?
+if(!isset($_GET["type"]))
+{
+	apiPrintError("No type specified");
+}
+
+switch($_GET["type"])
+{
+// Post
+case "post":
+	if( !isset($_GET["post_id"]) )
+		apiPrintError("No Post ID specified");
+
+	$postObj = new posts();
+	$postObj->apiDisplayPost((int)$_GET["post_id"]);
+	break;
+}
+
+mysql_close();
 ?>

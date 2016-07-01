@@ -49,7 +49,7 @@ if(!empty($_POST))
 			die();
 		}
 	}
-	$postObj = new HandleData("unvalidated_posts", array("title","text","user","name","email","tags","img","thumb"));
+	$postObj = new database("unvalidated_posts", array("title","text","user","name","email","tags","img","thumb"));
 	
 	// Check for valid input
 	if(CheckEmptyInput($_POST['title']))

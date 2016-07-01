@@ -20,10 +20,10 @@
 // along with RetroCMS.  If not, see <http://www.gnu.org/licenses/>.
 // Copyright 2016 William McPherson
 // *******************************************************
-require_once "handleData.php";
+require_once "database.php";
 require_once "users.php";
 
-class UvPosts extends handleData
+class UvPosts extends database
 {
 	// CONSTRUCTOR
 	// Sets the field array based on a parameter, fields are usually not required

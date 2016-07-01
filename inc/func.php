@@ -132,7 +132,7 @@ function htmlHeader($title = "", $forceSideBar = false)
 	else $css = "/css/megasis.css";
 	// Get categories
 	$catString = ""; // Initialize string used for final output
-	$categories = new handleData("categories",array("name"));
+	$categories = new database("categories",array("name"));
 	$cats = $categories->dbOutput();
 	for($i = 0; $i < count($cats); $i++)
 	{
@@ -486,5 +486,14 @@ function GetTinyURL($url)
 	$data = curl_exec($ch);
 	curl_close($ch);
 	return $data;
+}
+
+
+// Print error for API
+// Print out an error, formatted as json
+function apiPrintError($msg)
+{
+	$arr = array("error" => $msg);
+	die(json_encode($arr));
 }
 ?>

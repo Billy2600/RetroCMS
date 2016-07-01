@@ -2,7 +2,7 @@
 // ******************************************************
 // Description: Class to handle all comments, outputing
 // it, inputing, modifying, etc. all the special cases
-// This class inherits from handleData
+// This class inherits from database
 //
 // This file is part of RetroCMS.
 //
@@ -22,12 +22,12 @@
 // *******************************************************
 
 // Required files
-require_once "handleData.php";
+require_once "database.php";
 require_once "users.php";
 require_once "votes.php";
 require_once "sessions.php";
 
-class comments extends handleData
+class comments extends database
 {
 	// PRVIATE
 	

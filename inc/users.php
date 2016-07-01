@@ -2,7 +2,7 @@
 // ******************************************************
 // Description: Class to handle all user data, retrieving
 // it, inserting, modifying, etc. all the special cases
-// This class inherits from handleData
+// This class inherits from database
 //
 // This file is part of RetroCMS.
 //
@@ -22,10 +22,10 @@
 // *******************************************************
 
 // Required files
-require_once "handleData.php";
+require_once "database.php";
 require_once "posts.php";
 
-class users extends handleData
+class users extends database
 {
 	// PRIVATE
 	
@@ -237,7 +237,7 @@ class users extends handleData
 		// Get account for user with the id of $id
 		$userType = $this->dbOutput(array("`uid`","='".$id."'"),false,false,false,true);
 		// Check what permissions that type has from account types database
-		$types = new handleData("account_types",array("admin","editor"));
+		$types = new database("account_types",array("admin","editor"));
 		$typeInfo = $types->dbOutput(array("`tid`","='".$userType[0][0]."'"),false,false,false,true);
 		// Return what we got
 		if($typeInfo[0][0] == "1") // Admin
