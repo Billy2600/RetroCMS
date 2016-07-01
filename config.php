@@ -44,10 +44,4 @@ define("ROTW","true"); // Rotw mode
 $rootPath = $_SERVER['DOCUMENT_ROOT'];
 $incPath = $rootPath."/inc";
 $tmplPath = $rootPath."/tmpl";
-
-// DEPRECIATED -- REMOVE THESE IN OTHER FILES IF YOU SEE ANY OF THEM USED
-$DATABASE_NAME = DB_NAME; 
-$DATABASE_USER = DB_USER; 
-$DATABASE_PASS = DB_PASS; 
-$DATABASE_HOST = DB_HOST; 
 ?>

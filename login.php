@@ -24,10 +24,6 @@ require_once $incPath."/func.php";
 require_once $incPath."/users.php";
 require_once $incPath."/sessions.php";
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 $session = new sessions();
 
 // Check if user is already logged in, if so redirect them to main page
@@ -57,6 +53,4 @@ else
 		htmlFooter();
 	}
 }
-
-mysql_close();
 ?>

@@ -24,17 +24,10 @@ require_once "config.php";
 require_once $incPath."/func.php";
 require_once $incPath."/posts.php";
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 // Display front page posts
 $sqlOutput = new posts();
 // Is start set?
 if(isset($_GET['start'])) $start = intval($_GET['start']);
 else $start = false;
 $sqlOutput->displayPostsFrontPage($start);
-
-// Close mysql
-mysql_close();
 ?>

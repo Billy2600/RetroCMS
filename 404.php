@@ -21,10 +21,6 @@
 require_once "config.php";
 require_once $incPath."/func.php";
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 htmlHeader("404 Document Not Found");
 
 // Pick a random image
@@ -47,5 +43,4 @@ $randomImg = $images[rand(0,(count($images) -1))];
 		</div>
 <?php
 htmlFooter();
-mysql_close();
 ?>

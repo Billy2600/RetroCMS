@@ -26,10 +26,6 @@ require_once $incPath."/uv_posts.php";
 require_once $incPath."/users.php";
 require_once "manFunc.php"; // Manage section functions
 
-// Connect to mysql
-mysql_connect(DB_HOST,DB_USER,DB_PASS);
-@mysql_select_db(DB_NAME) or die("Unable to select database");
-
 // Check for logged in and admin/editor status
 checkLoginAdminEditor();
 // This is an admin only page, so make sure we're an admin, not an editor
@@ -156,6 +152,4 @@ else
 	htmlOutput("../tmpl/man/main.txt",array("title","form","admin"),array("Unvalidated Posts",$form,$adminOptions));
 	htmlFooter();
 }
-// Close mysql
-mysql_close();
 ?>

@@ -24,10 +24,6 @@ require_once "config.php";
 require_once $incPath."/func.php";
 require_once $incPath."/posts.php";
 
-// connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 // Get posts
 $sqlOutput = new posts(array("pid","title","text","tags","date"));
 $posts = $sqlOutput->dbOutput(array("hidden","=0"), 10, "ORDER BY date DESC");
@@ -63,6 +59,4 @@ for($i = 0; $i < count($posts); $i++)
 
 // Display RSS footer
 htmlOutput("tmpl/rss_footer.txt");
-// close mysql
-mysql_close();
 ?>

@@ -26,10 +26,6 @@ require_once "inc/users.php";
 require_once "inc/recaptchalib.php";
 require_once "tmpl/strings.php";
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 // Function to display error
 function displayError($text)
 {
@@ -141,6 +137,4 @@ else
 		htmlFooter();
 	}
 }
-
-mysql_close();
 ?>

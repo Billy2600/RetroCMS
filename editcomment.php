@@ -24,10 +24,6 @@ require_once "inc/func.php";
 require_once "inc/comments.php";
 require_once "tmpl/strings.php";
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 // Make sure we have an id set
 if(!isset($_GET['id']))
 {
@@ -98,6 +94,4 @@ else
 	htmlOutput("tmpl/forms/edit_com.txt",array("id","text","msg_reply"),array($_GET['id'],stripslashes($commentInfo[0][0]),$msg_reply));
 	htmlFooter();
 }
-
-mysql_close();
 ?>

@@ -24,10 +24,6 @@ require_once "config.php";
 require_once $incPath."/func.php";
 require_once $incPath."/posts.php";
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 // Has a search been issued?
 if(isset($_GET['q']))
 {
@@ -108,7 +104,4 @@ else
 	htmlOutput("tmpl/searchForm.txt",$replace,$data);
 	htmlFooter(); // display footer
 }
-
-// Close mysql
-mysql_close();
 ?>

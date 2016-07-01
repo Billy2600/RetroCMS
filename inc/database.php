@@ -20,12 +20,20 @@
 // along with RetroCMS.  If not, see <http://www.gnu.org/licenses/>.
 // Copyright 2016 William McPherson
 // *******************************************************
+if(file_exists("./config.php"))
+	require_once "./config.php";
+else // Config may be one more level deep (e.g. if we're in /manage/)
+	require_once "../config.php";
+
 class database
 {
 	// PRIVATE
 	
 	private $table; // MySQL table to draw data to/from
 	private $fields; // Array of fields in said table we're handling
+
+	//PROTECTED
+	protected static $connection; // Static, so we'll only use one
 	
 	
 	// CONSTRUCTOR
@@ -38,9 +46,35 @@ class database
 			$this->table = DB_PREFIX.$tbl;
 		$this->fields = $fld;
 	}
-
 	
 	// PUBLIC
+
+	// Connect to database
+	// Major props to Lionite
+	public function connect()
+	{
+		if(!isset(self::$connection))
+		{
+			self::$connection = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+		}
+		if(self::$connection == false || self::$connection == NULL)
+		{
+			die($connection->error);
+		}
+		return self::$connection;
+	}
+
+	// Query database
+	public function query($query)
+	{
+		$connection = $this->connect();
+		$result = $connection->query($query);
+		if($result == false || $result == NULL)
+		{
+			die($connection->error);
+		}
+		return $result;
+	}
 	
 	// Return table name
 	public function getTable()
@@ -77,7 +111,16 @@ class database
 		$fields = $this->fields;
 		$output = array();
 		// Begin mysql query
-		$query = "SELECT * FROM $table";
+		$query = "SELECT ";
+		// Insert fields
+		for($i = 0; $i < count($fields); $i++)
+		{
+			$query .= $fields[$i];
+			// Add commas after all but the last one
+			if($i != count($fields)-1) $query .= ",";
+		}
+		
+		$query .= "  FROM $table";
 		// Add optional parameters
 		// Where
 		if($where != false)
@@ -99,23 +142,22 @@ class database
 			else
 				$query .= " LIMIT $limit";
 		}
-		// Start looping through the rows returned
-		if($dontEscape == false) $query = addslashes($query);
-		// Print out query if debug is true
+
+		// Optional stuff
+		if(!$dontEscape) $query = addslashes($query);
 		if($debug == true) die($query);
-		$result = mysql_query($query) or die(mysql_error());
-		$num = mysql_num_rows($result);
-		for($i = 0; $i < $num; $i++)
+
+		// Get data and stuff it into an array
+		$rows = array();
+		$result = $this->query($query);
+		if($result === false)
+			die(self::$connection->error);
+
+		while($row = $result->fetch_array(MYSQLI_NUM))
 		{
-			// Loop through fields, put the data into multidimensional array
-			for($o = 0; $o < count($fields); $o++)
-			{
-				// Add it into the array
-				$fieldName = $fields[$o];
-				$output[$i][$o] = stripslashes( mysql_result( $result,$i,$fieldName ) );
-			}
+			$rows[] = $row;
 		}
-		return $output;
+		return $rows;
 	}
 	
 	// Insert data into the database
@@ -150,10 +192,10 @@ class database
 			if($i != $maxData - 1) $query .= ",";
 		}
 		$query .= ")";
-		if($debug == true)
-			die($query);
+		if($debug == true) die($query);
+
 		// Do the query
-		mysql_query($query) or die(mysql_error());
+		$this->query($query);
 	}
 	
 	// Update data in the database
@@ -182,7 +224,8 @@ class database
 		// Need to make sure we're updating a specific entry
 		$query .= " WHERE $key = '$id'";
 		// Do the query
-		mysql_query($query) or die(mysql_error());
+		//mysql_query($query) or die(mysql_error());
+		$this->query($query);
 	}
 	
 	// Delete data from table
@@ -196,7 +239,8 @@ class database
 		$extra = addslashes($extra); */
 		$table = $this->table;
 		$query = "DELETE FROM $table WHERE $key='$id'$extra";
-		mysql_query($query) or die(mysql_error());
+		//mysql_query($query) or die(mysql_error());
+		$this->query($query);
 	}
 	
 	// Get the current date in a format MySQL likes

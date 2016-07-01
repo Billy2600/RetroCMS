@@ -26,10 +26,6 @@ require_once $incPath."/func.php"; // Global Functions
 require_once "manFunc.php"; // Manage section functions
 require_once $incPath."/users.php";
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 // Check for logged in and admin/editor status
 checkLoginAdminEditor();
 
@@ -41,7 +37,4 @@ $adminOptions = getAdminOptions();
 $mainText = htmlOutput("../tmpl/man/main_text.txt",NULL,NULL,true);
 htmlOutput("../tmpl/man/main.txt",array("title","form","admin"),array("Manage",$mainText,$adminOptions));
 htmlFooter();
-
-// Close mysql
-mysql_close();
 ?>

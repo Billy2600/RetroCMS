@@ -24,10 +24,6 @@ require_once "../config.php";
 require_once $incPath."/func.php";
 require_once "manFunc.php"; // Manage section functions
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 // Check for logged in and admin/editor status
 checkLoginAdminEditor();
 // This is an admin only page, so make sure we're an admin, not an editor
@@ -104,6 +100,4 @@ else
 	htmlOutput("../tmpl/man/main.txt",array("title","form","admin"),array("Current Bans",$form,$adminOptions));
 	htmlFooter();
 }
-// Close mysql
-mysql_close();
 ?>

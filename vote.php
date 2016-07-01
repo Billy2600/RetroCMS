@@ -19,9 +19,6 @@
 require_once "config.php";
 require_once $incPath."/votes.php";
 
-mysql_connect(DB_HOST,DB_USER,DB_PASS);
-@mysql_select_db(DB_NAME) or die("Unable to select database");
-
 $votesObj = new votes();
 
 // Make sure input is all good
@@ -34,7 +31,6 @@ if( isset( $_GET['pid'] ) && isset( $_GET['value'] ) && isset( $_GET['type'] ) )
 	}
 }
 
-mysql_close();
 // In every case, redirect back to the last page
 header ("Location: ".$_SERVER['HTTP_REFERER']);
 ?>

@@ -24,10 +24,6 @@ require_once "config.php";
 require_once $incPath."/func.php";
 require_once $incPath."/users.php";
 
-// Connect to mysql
-mysql_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS);
-@mysql_select_db($DATABASE_NAME) or die("Unable to select database");
-
 // Display front page posts
 $sqlOutput = new users();
 // Make sure post id is set, if not, throw an error
@@ -35,7 +31,4 @@ if(isset($_GET['id']))
 	$sqlOutput->displayUser($_GET['id']);
 else
 	echo displayMessage("No user ID specified!");
-
-// Close mysql
-mysql_close();
 ?>
