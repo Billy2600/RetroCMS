@@ -26,7 +26,7 @@ define("DB_PASS",''); // database password
 define("DB_HOST",''); // database host name
 define("DB_PREFIX","ret_"); // Database prefix
 
-define("SALT","");
+define("SALT",""); // Type a bunch of random characters here
 
 define("IMG_UPLOAD_DIR",$_SERVER['DOCUMENT_ROOT']."/img/uploads/"); // Default image upload directory
 define("THUMB_UPLOAD_DIR",$_SERVER['DOCUMENT_ROOT']."/img/uploads/thumbs/"); // Default thumbnail upload directory

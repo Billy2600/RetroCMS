@@ -155,6 +155,8 @@ class database
 
 		while($row = $result->fetch_array(MYSQLI_NUM))
 		{
+			for($i = 0; $i < count($row); $i++)
+				$row[$i] = stripslashes($row[$i]);
 			$rows[] = $row;
 		}
 		return $rows;
