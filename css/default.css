@@ -190,16 +190,18 @@ li {
 .ratings a:hover {
 	background-color: rgba(155,155,155,0.3) !important
 }
-.ratings #up {
+.ratings .up {
 	color: green;
 }
-.ratings #up a {
+.ratings .up a {
+	cursor: pointer;
 	color: green !important;
 }
-.ratings #down {
+.ratings .down {
 	color: red;
 }
-.ratings #down a {
+.ratings .down a {
+	cursor: pointer;
 	color: red !important;
 }
 

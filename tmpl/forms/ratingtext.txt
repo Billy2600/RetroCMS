@@ -1,4 +1,4 @@
 <span class="ratings">
-	<span id="up"><img src="/img/icon_thumbsup.png" alt="&uarr;" /> [up]</span>
-	<span id="down"><img src="/img/icon_thumbsdown.png" alt="&darr;" /> [down]</span>
+	<span class="up"><img src="/img/icon_thumbsup.png" alt="&uarr;" /> [up]</span>
+	<span class="down"><img src="/img/icon_thumbsdown.png" alt="&darr;" /> [down]</span>
 </span>

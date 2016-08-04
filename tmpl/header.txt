@@ -15,6 +15,15 @@
 	<meta name="author" content="William 'Billy2600' McPherson" />
 	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 	<link href="[css]" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		function rotw_vote(pid, type, value)
+		{
+			$.ajax({url: "/vote.php?pid=" + pid + "&type=" + type + "&value=" + value, success: function(result){
+		        $("#ratings_" + pid).html(result);
+		    }});
+		}
+	</script>
 	<!-- show/hide content, from http://www.cssnewbie.com/showhide-content-css-javascript/ -->
 	<script language="JavaScript" type="text/javascript">
 	function showHide(shID) {

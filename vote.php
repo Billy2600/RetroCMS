@@ -18,6 +18,7 @@
 // =================================================
 require_once "config.php";
 require_once $incPath."/votes.php";
+require_once $incPath."/func.php";
 
 $votesObj = new votes();
 
@@ -25,12 +26,20 @@ $votesObj = new votes();
 if( isset( $_GET['pid'] ) && isset( $_GET['value'] ) && isset( $_GET['type'] ) )
 {
 	// If add vote fails, try to edit a currently existing vote
-	if( !$votesObj->AddVote( $_GET['pid'],(bool)$_GET['value'] ,(int)$_GET['type'] ))
+	if( !$votesObj->AddVote( $_GET['pid'],(int)$_GET['value'] ,(int)$_GET['type'] ))
 	{
-		$votesObj->ChangeVote( $_GET['pid'],(bool)$_GET['value'],(int)$_GET['type']  );
+		$votesObj->ChangeVote( $_GET['pid'],(int)$_GET['value'],(int)$_GET['type']  );
 	}
 }
 
-// In every case, redirect back to the last page
-header ("Location: ".$_SERVER['HTTP_REFERER']);
+// Output new vote HTML
+if(isset( $_GET['pid'] ))
+{
+	$type = (int)$_GET['type'];
+	htmlOutput( "./tmpl/forms/ratinglinks.txt",
+		array( "pid","up","down","type" ),
+		array( (int)$_GET['pid'],$votesObj->GetNoThumbsUp( (int)$_GET['pid'],$type ),$votesObj->GetNoThumbsDown( (int)$_GET['pid'],$type ),$type ));
+}
+else
+	echo "Error!";
 ?>

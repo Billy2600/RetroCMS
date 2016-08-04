@@ -24,6 +24,7 @@
 // Required files
 require_once "posts.php";
 require_once "comments.php";
+require_once "sessions.php";
 
 class votes extends database
 {
@@ -36,17 +37,22 @@ class votes extends database
 	}
 	
 	// Add a vote
-	public function AddVote($post_id,$value=true,$type=0)
+	public function AddVote($post_id,$value=1,$type=0)
 	{
 		parent::changeFields( array( "user_id","post_id","value","date","type" ) );
+
+		$sessionObj = new sessions();
 		$postObj = new posts();
+		$user_id = (int)$sessionObj->getUserIdFromSession();
+
 		// Make sure we're logged in
-		if( !isset( $_COOKIE['userid'] ) )
+		if( !$sessionObj->checkValid() )
 		{
 			return false;
 		}
+
 		// Make sure we haven't voted
-		if( $this->CheckVote( $post_id,$_COOKIE['userid'] ) )
+		if( $this->CheckVote( $post_id,$user_id,$type) )
 		{
 			return false;
 		}
@@ -55,7 +61,7 @@ class votes extends database
 		// Post
 		if($type == 0)
 		{
-			if( $_COOKIE['userid'] == $postObj->getPosterID( $post_id ) )
+			if( $user_id == $postObj->getPosterID( $post_id ) )
 			{
 				return false;
 			}
@@ -64,35 +70,51 @@ class votes extends database
 		else if($type == 1)
 		{
 			$comObj = new Comments();
-			if( $_COOKIE['userid'] == $comObj->getPosterID( $post_id ) )
+			if( $user_id == $comObj->getPosterID( $post_id ) )
 			{
 				return false;
 			}
 		}
 		
 		// Put vote in
-		$this->dbInput( array( $_COOKIE['userid'],$post_id,(int)$value,$this->getDateForMySQL(),$type ) );
+		$this->dbInput( array( $user_id,$post_id,(int)$value,$this->getDateForMySQL(),$type ) );
 		// Increment/decrement post rating
-		$postObj->IncDecRating($post_id,$value);
+		if($type == 0) $postObj->IncDecRating($post_id,$value);
 		
 		return true;
 	}
 	
 	// Change a vote
-	public function ChangeVote( $post_id,$value=true,$type=0 )
+	public function ChangeVote( $post_id,$value=1,$type=0 )
 	{
-		if( !isset( $_COOKIE['userid'] ) )
+		$sessionObj = new sessions();
+		$postObj = new posts();
+		$user_id = (int)$sessionObj->getUserIdFromSession();
+
+		if( !$sessionObj->checkValid() )
 		{
 			return false;
 		}
-		$postObj = new posts();
-		if( $_COOKIE['userid'] == $postObj->getPosterID( $post_id ) )
+
+		if($type == 0)
 		{
-			return false;
+			if( $user_id == $postObj->getPosterID( $post_id ) )
+			{
+				return false;
+			}
+		}
+		// Comment
+		else if($type == 1)
+		{
+			$comObj = new Comments();
+			if( $user_id == $comObj->getPosterID( $post_id ) )
+			{
+				return false;
+			}
 		}
 		parent::changeFields( array( "vid","value" ) );
 		// Get vote ID and value
-		$voteInfo = $this->dbOutput( array( "post_id=$post_id"," AND user_id=".$_COOKIE['userid']." AND type=$type" ) );
+		$voteInfo = $this->dbOutput( array( "post_id=$post_id"," AND user_id=".$user_id." AND type=$type" ) );
 		// Change it, if it's different
 		if( (int)$value == $voteInfo[0][1] ) return false;
 		else
@@ -100,7 +122,7 @@ class votes extends database
 			parent::changeFields( array( "value" ) );
 			$this->dbUpdate( array( (int)$value ),"vid",$voteInfo[0][0] );
 			$postObj = new posts();
-			$postObj->IncDecRating($post_id,$value);
+			if($type == 0) $postObj->IncDecRating($post_id,$value);
 			return true;
 		}
 	}

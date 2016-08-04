@@ -118,7 +118,12 @@ class sessions extends database
 	{
 		$this->changeFields(array("sid"));
 		$output = $this->dbOutput(array("userid","=$userid"));
-		return $output[0][0];
+		if($output != NULL)
+			return $output[0][0];
+		else
+		{
+			return 0;
+		}
 	}
 	
 	// Get userid from session
@@ -130,7 +135,12 @@ class sessions extends database
 		
 		$this->changeFields(array("userid"));
 		$output = $this->dbOutput(array("sid","=".$_COOKIE['session']));
-		return $output[0][0];
+		if($output != NULL)
+			return $output[0][0];
+		else
+		{
+			return 0;
+		}
 	}
 }
 ?>

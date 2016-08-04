@@ -1,4 +1,4 @@
-<span class="ratings">
-	<span id="up"><a href="/rate/[pid]/1/[type]/" title="Click to give this a thumbs up"><img src="/img/icon_thumbsup.png" alt="&uarr;" /> [up]</a></span>
-	<span id="down"><a href="/rate/[pid]/0/[type]/" title="Click to give this a thumbs down"><img src="/img/icon_thumbsdown.png" alt="&darr;" /> [down]</a></span>
+<span class="ratings" id="ratings_[pid]">
+	<span class="up"><a onclick="rotw_vote([pid],[type],1)" title="Click to give this a thumbs up"><img src="/img/icon_thumbsup.png" alt="&uarr;" /> [up]</a></span>
+	<span class="down"><a onclick="rotw_vote([pid],[type],0)" title="Click to give this a thumbs down"><img src="/img/icon_thumbsdown.png" alt="&darr;" /> [down]</a></span>
 </span>
