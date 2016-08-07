@@ -148,6 +148,7 @@ li {
 }
 .post_body, .up_body, .ucp_body {
 	padding: 0.5%;
+	padding-top: 0.7%;
 	margin-bottom: 1.5%;
 	overflow: inherit;
 	border-top: none;
