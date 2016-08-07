@@ -93,9 +93,9 @@ class messages extends database
 	{
 		$list = ""; // Initialize list
 		// Set up fields
-		parent::changeFields(array("mid","title","text","date","to","from","read"));
+		parent::changeFields(array("mid","title","text","date","`to`","`from`","`read`"));
 		// Get messages for user specified
-		$messages = $this->dbOutput(array("`to`","=$uid"),false,"ORDER BY `date` DESC");
+		$messages = $this->dbOutput(array("`to`","=$uid"),false,"ORDER BY date DESC",false,false,false,false);
 		// Return here if no messages were found
 		if(count($messages) < 1)
 			return "No Messages found";
@@ -142,7 +142,7 @@ class messages extends database
 		// Set message to read
 		$this->setMessageRead($mid);
 		// Set up fields
-		parent::changeFields(array("title","text","date","to","from","reply"));
+		parent::changeFields(array("title","text","date","`to`","`from`","reply"));
 		// Get message with this ID
 		$message = $this->dbOutput(array("`mid`","=$mid"));
 		// Check if message exist
@@ -193,7 +193,7 @@ class messages extends database
 		$session = new sessions();
 		$user_id = $session->getUserIdFromSession();
 		// Make sure we own this post
-		parent::changeFields(array("to"));
+		parent::changeFields(array("`to`"));
 		$mid = intval($mid);
 		$message = $this->dbOutput(array("mid","=$mid")); // Post with this id
 		// If no message found, display error
