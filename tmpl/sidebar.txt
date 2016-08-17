@@ -63,7 +63,7 @@
 			<div class="post_title">Friends</div>
 			<div class="post_body">
 				<ul>
-					<li><a href="http://qualityroms.net" target="_blank"><img src="/img/qualityroms.png" alt="Quality Roms"/></li>
+					<li><a href="http://qualityroms.net" target="_blank"><img src="/img/qualityroms.png" alt="Quality Roms"/></a></li>
 					<li><a href="http://monkeypro.net" target="_blank"><img src="/img/monkeypro.png" alt="Monkey Pro" /></a></li>
 					<li><a href="http://z13.invisionfree.com/EchoNET/" target="_blank"><img src="/img/echonetwork.png" alt="Echo Network" /></a></li>
 				</ul>
