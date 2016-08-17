@@ -34,7 +34,7 @@ class posts extends database
 	// This function sets up the data for posts, including replacing things with HTML, retrieving other information
 	// such as user info, etc. Takes one array, then returns two, contained in another array
 	// If you'd like to set a cutoff for posts, set $cutoff to the maximum amount of characters you'd like to show
-	// CUTOFF NOTE: If [[cutoff]] (case insensitive) exists in a post, the amount you enter will be ignored. You can
+	// CUTOFF NOTE: If <!-- pagebreak --> (case insensitive) exists in a post, the amount you enter will be ignored. You can
 	// force it by setting $forceCutOff to true
 	public function setUpPostData($data,$cutoff = false,$forceCutOff = false, $noHTML = false)
 	{
@@ -46,7 +46,7 @@ class posts extends database
 		// Cut off text
 		if($cutoff != false)
 		{
-			$cutoffText = "[[cutoff]]"; // cutoff text for posts
+			$cutoffText = "<!-- pagebreak -->"; // cutoff text for posts
 			// Find special cutoff text
 			$cutoffPos = stripos($data[2],$cutoffText);
 			if($cutoffPos !== false && $forceCutOff == false)
@@ -64,7 +64,7 @@ class posts extends database
 		}
 		// Just replace cutoff text
 		else
-			$data[2] = str_ireplace("[[cutoff]]","",$data[2]);
+			$data[2] = str_ireplace("<!-- pagebreak -->","",$data[2]);
 		$data[2] = stripslashes($data[2]);
 		
 		// If image is not null, make it an image tag, from template, and remove thumb from array
