@@ -36,7 +36,8 @@ function displayError($text)
 }
 
 // Check if user is already logged in, if so redirect them to main page
-if(isset($_COOKIE['userid']) && isset($_COOKIE['upass']))
+$session = new sessions();
+if($session->checkValid())
 {
 	header("Location: /");
 }
