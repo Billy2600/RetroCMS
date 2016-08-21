@@ -72,6 +72,9 @@ else
 			displayError("Passwords did not match!");
 		if(!isset($_POST['email']) || $_POST['email'] == "" || $_POST['email'] == " ") // No email
 			displayError("E-mail address was not entered!");
+		// Credit to emailregex.com for this monster
+		if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+			displayError("Please enter a valid email");
 		// Check if username exists
 		if($user->checkUserName($_POST['name']))
 			displayError("A user with that name already exists!");

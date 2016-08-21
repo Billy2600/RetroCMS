@@ -226,7 +226,7 @@ class database
 		// Need to make sure we're updating a specific entry
 		$query .= " WHERE $key = '$id'";
 		// Do the query
-		//mysql_query($query) or die(mysql_error());
+		//die($query);
 		$this->query($query);
 	}
 	

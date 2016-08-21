@@ -219,11 +219,11 @@ class users extends database
 			$this->getDateForMySQL()));
 			
 		// Now encrypt and insert password
-		$userid = getIdFromName($userInfo[0]);
-		$encPass = encryptPass($userid, $userInfo[1]);
-		changeFields(array("password"));
+		$userid = $this->getIdFromName($userInfo[0]);
+		$encPass = $this->encryptPass($userid, $userInfo[1]);
+		$this->changeFields(array("password"));
 		// Update user we just entered with pass
-		$this->dbUpdate(array($encPass,"uid",$userid));
+		$this->dbUpdate(array($encPass),"uid",$userid);
 	}
 	
 	// Get the type of user
