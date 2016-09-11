@@ -35,7 +35,7 @@ if( isset( $_GET["id"] ) )
 	$postObj = new posts( array( "pid","title","date" ) );
 	$postInfo = $postObj->dbOutput( array( "hidden=0 AND poster_id=",$_GET['id'] ),false,"ORDER BY `date` DESC" );
 
-	htmlHeader( "Posts by " . $userInfo[0][0]." - ",true );
+	htmlHeader( "Posts by " . $userInfo[0][0],true );
 	// Loop through and output posts
 	for( $i=0; $i < count( $postInfo ); $i++ )
 	{

@@ -155,6 +155,10 @@ li {
 	background-color: #1924B1;
 }
 
+.post_body img {
+	margin: 4px;
+}
+
 .postimg, .comavatar {
 	float: left; 
 	margin: 4px;
