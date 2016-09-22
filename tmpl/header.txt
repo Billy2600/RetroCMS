@@ -9,6 +9,7 @@
 		If you see an error in my code e-mail me at billymcfly@gmail.com.
 	-->
 	<meta name="description" content="[desc]">
+	<meta property="og:image" content="[og_img]">
 	<title>[title]Retro of the Week</title>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 	<meta name="keywords" content="Retro of the Week, Retro, video games, video, games, gaming, 8-bit, 16-bit, modern games" />

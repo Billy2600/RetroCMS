@@ -92,7 +92,7 @@ function displayMessage($message,$type = "none",$url = "http://google.com",$time
 // Display HTML header
 // Postcondition: Prints out the top of the page, from the template file
 //	You can also force the sidebar (need to be set in this and footer function)
-function htmlHeader($title = "", $forceSideBar = false)
+function htmlHeader($title = "", $forceSideBar = false, $og_img = "http://retrooftheweek.net/img/logo.png")
 {
 	require_once "users.php";
 	global $tmplPath;
@@ -162,7 +162,7 @@ function htmlHeader($title = "", $forceSideBar = false)
 	}
 		
 	// Output header
-	htmlOutput($tmplPath."/header.txt",array("title","desc","loginbar","css","cats","fullwidth"),array($title,getDescription(),$loginbar,$css,$catString,$fullwidth));
+	htmlOutput($tmplPath."/header.txt",array("title","desc","og_img","loginbar","css","cats","fullwidth"),array($title,getDescription(),$og_img,$loginbar,$css,$catString,$fullwidth));
 	// Display unread messages box if user indeed has unread message
 	if($loggedIn && !isset($_GET['do'])) // Don't do any of this if we're not logged in or in the messenger
 	{

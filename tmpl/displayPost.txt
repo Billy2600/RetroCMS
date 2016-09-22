@@ -15,5 +15,10 @@
 	<!-- post body -->
 	[text]
 	[cont]
-	<div class="tags"><a href="/p/[id]/#comments">[com] comment(s)</a> | Tags: [tags] <a href="/print/[id]/"><img class="printicon" src="/img/printer.png" alt="Printer friendly vesrion" /></a></div>
+		<div class="tags">
+			<a href="/p/[id]/#comments">[com] comment(s)</a> | Tags: [tags] <a href="/print/[id]/"><img class="printicon" src="/img/printer.png" title="Printer friendly vesrion" alt="Printer friendly vesrion" /></a>
+			<!-- share icons -->
+			<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//retrooftheweek.net/p/[id]/[canon]/" target="_blank"><img class="printicon" src="/img/icon_facebook.png" title="Share on Facebook" alt="Share on Facebook" /></a>
+			<a href="https://twitter.com/home?status=http%3A//retrooftheweek.net/p/[id]/[canon]/" target="_blank"><img class="printicon" src="/img/icon_twitter.png" title="Share on Twitter" alt="Share on Twitter" /></a>
+		</div>
 	</div>

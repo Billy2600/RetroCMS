@@ -178,7 +178,7 @@ class posts extends database
 			die();
 		}
 		// Display header
-		htmlHeader($post[0][1]); // Gotta put the title in there, for the title bar
+		htmlHeader($post[0][1],false,"http://retrooftheweek.net" . $post[0][5]); // Gotta put the title in there, for the title bar, and the og image
 			
 		// Display post
 		$postData = $this->setUpPostData($post[0]);
