@@ -13,7 +13,7 @@
 						<li>- <a href="/manage/delete_com.php">Delete Comments</a></li>
 						<li>- <a href="/manage/delete.php">Delete Post</a></li>
 						<li>- <a href="/manage/tinyurl.php">Create TinyURL</a></li>
-						<li>- <a href="/manage/social.php">Post to Social Networking</a></li>
+						<!-- <li>- <a href="/manage/social.php">Post to Social Networking</a></li> -->
 					</ul>
 				</td>
 				<td class="ucp_right">
