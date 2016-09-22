@@ -3,7 +3,8 @@
 			<script type="text/javascript">
 				tinymce.init({
 				    selector: '#editpost',
-				    plugins: 'pagebreak, image, link, textcolor, fullscreen, anchor'
+				    convert_urls: false,
+				    plugins: 'pagebreak, image, link, textcolor, fullscreen, anchor, code'
 				  });
 			</script>
 			<!-- disable/enable file input on check -->
