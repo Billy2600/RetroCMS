@@ -21,6 +21,7 @@
 					}
 				}
 			</script>
+			<script type="text/javascript" src="/js/preview.js"></script>
 			<form name="editpost" action="/manage/edit.php" method="post" enctype="multipart/form-data">
 				<table>
 					<tr>
@@ -28,7 +29,7 @@
 							<strong>Title</strong>:
 						</td>
 						<td>
-							<input type="text" name="title" maxlength="255" size="30" value="[title]" /> <input type="submit" value="Submit Edit" />
+							<input type="text" id="post_title" name="title" maxlength="255" size="30" value="[title]" /> <input type="submit" value="Submit Edit" /> <input type="button" value="Preview" onclick="open_preview('post_title','post_tags')" />
 						</td>
 					</tr>
 					<tr>
@@ -52,7 +53,7 @@
 							<strong>Tags</strong>:
 						</td>
 						<td>
-							<input type="text" name="tags" maxlength="255" size="40" value="[tags]" /><br />
+							<input type="text" id="post_tags" name="tags" maxlength="255" size="40" value="[tags]" /><br />
 						</td>
 					</tr>
 					<tr>

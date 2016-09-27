@@ -335,6 +335,35 @@ class posts extends database
 			htmlOutput("./tmpl/newerPosts.txt",array("url","start"),array($url,$startNew));
 		}
 	}
+
+	// Display preview
+	// Takes in GET data and displays what a post will look like
+	public function displayPreview($title = null, $text = null, $tags = null)
+	{
+		// Make sure all data is present and accounted for
+		if(!isset($text) || $text == null ||
+			!isset($title) || $title == null ||
+ 			!isset($tags) || $tags == null)
+		{
+			htmlHeader("Error");
+			displayMessage("Not all data was entered","goback");
+			htmlFooter();
+			// Stop here
+			die();
+		}
+
+		// Set up data
+		$replace = array("id","title","text","date","tags","img","cont","userid","avatar"
+			,"username","com","rating","canon","editlink");
+
+		$data = array(0,$title,$text,$this->convertDateTime($this->getDateForMySQL()),$tags,'<img src="/img/default-av.png" class="postimg" style="width: 150px; height: auto;" />',"",0,"/img/default-av.png"
+			,"Test User","0","","",'[<a href="javascript:window.history.back();">Go Back</a>]');
+
+		// Display it
+		htmlHeader("Preview - " . $title);
+		htmlOutput("../tmpl/displayPost.txt",$replace,$data);
+		htmlFooter();
+	}
 	
 	// E-mail poster
 	// Postcondition: Will e-mail the person who posted $postID that someone has commented on it;
