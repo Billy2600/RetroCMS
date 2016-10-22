@@ -22,9 +22,9 @@
 
 // Required files
 require_once "config.php";
-require_once $incPath."/func.php";
-require_once $incPath."/users.php";
-require_once $incPath."/posts.php";
+require_once "inc/func.php";
+require_once "inc/users.php";
+require_once "inc/posts.php";
 
 if( isset( $_GET["id"] ) ) 
 {

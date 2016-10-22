@@ -21,8 +21,8 @@
 
 // Required files
 require_once "config.php";
-require_once $incPath."/func.php";
-require_once $incPath."/posts.php";
+require_once "inc/func.php";
+require_once "inc/posts.php";
 
 // Get posts
 $sqlOutput = new posts(array("pid","title","text","tags","date"));

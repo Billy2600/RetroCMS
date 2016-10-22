@@ -21,8 +21,8 @@
 
 // Required files
 require_once "config.php";
-require_once $incPath."/func.php";
-require_once $incPath."/posts.php";
+require_once "inc/func.php";
+require_once "inc/posts.php";
 
 // Display front page posts
 $postObj = new posts();

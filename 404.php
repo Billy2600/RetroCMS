@@ -19,7 +19,7 @@
 // **************************************************
 // Required files
 require_once "config.php";
-require_once $incPath."/func.php";
+require_once "inc/func.php";
 
 htmlHeader("404 Document Not Found");
 

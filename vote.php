@@ -17,8 +17,8 @@
 // Copyright 2016 William McPherson
 // =================================================
 require_once "config.php";
-require_once $incPath."/votes.php";
-require_once $incPath."/func.php";
+require_once "inc/votes.php";
+require_once "inc/func.php";
 
 $votesObj = new votes();
 

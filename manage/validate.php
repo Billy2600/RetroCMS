@@ -21,9 +21,9 @@
 
 // Required files
 require_once "../config.php";
-require_once $incPath."/func.php";
-require_once $incPath."/uv_posts.php";
-require_once $incPath."/users.php";
+require_once "../inc/func.php";
+require_once "../inc/uv_posts.php";
+require_once "../inc/users.php";
 require_once "manFunc.php"; // Manage section functions
 
 // Check for logged in and admin/editor status

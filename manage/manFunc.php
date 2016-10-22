@@ -20,9 +20,9 @@
 // **************************************************/
 
 // Set up current user variable
-include_once $incPath."/users.php";
-include_once $incPath."/posts.php";
-include_once $incPath."/uv_posts.php";
+include_once "../inc/users.php";
+include_once "../inc/posts.php";
+include_once "../inc/uv_posts.php";
 $curUser = new users();
 
 // Check for a users login information and admin/editor privledges

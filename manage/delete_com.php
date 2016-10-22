@@ -22,11 +22,11 @@
 
 // Required files
 require_once "../config.php";
-require_once $incPath."/func.php";
+require_once "../inc/func.php";
 require_once "manFunc.php"; // Manage section functions
-require_once $incPath."/comments.php";
-require_once $incPath."/posts.php";
-require_once $incPath."/users.php";
+require_once "../inc/comments.php";
+require_once "../inc/posts.php";
+require_once "../inc/users.php";
 
 // Check for logged in and admin/editor status
 checkLoginAdminEditor();

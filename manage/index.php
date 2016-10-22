@@ -22,9 +22,9 @@
 
 // Required files
 require_once "../config.php";
-require_once $incPath."/func.php"; // Global Functions
+require_once "../inc/func.php"; // Global Functions
 require_once "manFunc.php"; // Manage section functions
-require_once $incPath."/users.php";
+require_once "../inc/users.php";
 
 // Check for logged in and admin/editor status
 checkLoginAdminEditor();

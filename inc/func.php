@@ -28,6 +28,17 @@ require_once "comments.php";
 require_once "users.php";
 require_once "sessions.php";
 
+// Get relative template path
+function getTmplPath()
+{
+	$tmplPath = "./tmpl";
+
+	if(!file_exists("./tmpl/message.txt"))
+		$tmplPath = "../tmpl";
+
+	return $tmplPath;
+}
+
 // Output data to HTML
 // Postcondition: The data in the $data array is printed (not returned!) using the $template template file by
 // replacing the names from the $replace array
@@ -37,8 +48,15 @@ require_once "sessions.php";
 // Note: Do not include [] brackets in what you want replaced while calling this function
 function htmlOutput($templateFile, $replace = false, $data = false,$return = false)
 {
+	$path = $templateFile;
+	// Attempt to include template path if not included
+	if(!file_exists($templateFile))
+	{
+		$path = getTmplPath() . "/" . $templateFile;
+	}
+
 	// Include the template file as a string
-	$template = file_get_contents($templateFile);
+	$template = file_get_contents($path);
 	// If either array are empty or false, Just print the template
 	if($data == false && $replace == false)
 	{
@@ -70,7 +88,8 @@ function htmlOutput($templateFile, $replace = false, $data = false,$return = fal
 //	Make the user confirm, includes a 'no' button that acts the same as 'go back'
 function displayMessage($message,$type = "none",$url = "http://google.com",$time = 5)
 {
-	global $tmplPath;
+	$tmplPath = getTmplPath();
+
 	htmlOutput($tmplPath."/message.txt",array("message"),array($message));
 	// Redirect user
 	if($type == "redirect")
@@ -95,7 +114,8 @@ function displayMessage($message,$type = "none",$url = "http://google.com",$time
 function htmlHeader($title = "", $forceSideBar = false, $og_img = "http://retrooftheweek.net/img/logo.png")
 {
 	require_once "users.php";
-	global $tmplPath;
+	$tmplPath = getTmplPath();
+
 	// Create objects
 	$session = new sessions();
 	$currentUser = new users();
@@ -187,7 +207,7 @@ function htmlHeader($title = "", $forceSideBar = false, $og_img = "http://retroo
 //	You can also force the sidebar to display
 function htmlFooter( $forceSideBar = false )
 {
-	global $tmplPath;
+	$tmplPath = getTmplPath();
 	$posts = new posts();
 	$comments = new comments();
 	$userObj = new users();

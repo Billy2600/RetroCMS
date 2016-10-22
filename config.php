@@ -39,9 +39,4 @@ define("RECAPTCHA_PUBLIC_KEY",""); // reCaptcha public key
 define("RECAPTCHA_PRIVATE_KEY",""); // reCaptcha private key
 
 define("ROTW","true"); // Rotw mode
-
-// DO NOT EDIT BLOW THIS LINE, UNLESS YOU KNOW WHAT YOU'RE DOING
-$rootPath = ".";//$_SERVER['DOCUMENT_ROOT'];
-$incPath = $rootPath."/inc";
-$tmplPath = $rootPath."/tmpl";
 ?>
