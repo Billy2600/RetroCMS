@@ -1,7 +1,5 @@
 function open_preview(title_id, tag_id) // Text ID not required thanks to tinyMCE
 {
-	// Description: Allows an editor to post into the social networks
-	//
 	// This file is part of RetroCMS.
 	//
 	// RetroCMS is free software: you can redistribute it and/or modify

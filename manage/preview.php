@@ -1,6 +1,6 @@
 <?php
 /* **************************************************************
-// Description: Allows an editor to post into the social networks
+// Description: Displays a preview of a post
 //
 // This file is part of RetroCMS.
 //

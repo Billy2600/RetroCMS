@@ -34,23 +34,32 @@ if(isset($_GET['q']))
 	{
 		$replace = array("q","tags","title","post","single","all");
 		// Select which one... is selected
+		$post = "";
+		$title = "";
+		$tags = "";
+		$type_all = "";
+
 		if($_GET['type'] == "tags")
 		{
 			$tags = "selected=\"selected\"";
-			$title = "";
-			$post = "";
 		}
 		elseif($_GET['type'] == "title")
 		{
 			$title = "selected=\"selected\"";
-			$tags = "";
-			$post = "";
 		}
 		elseif($_GET['type'] == "post")
 		{
 			$post = "selected=\"selected\"";
-			$title = "";
-			$tags = "";
+		}
+		elseif($_GET['type'] == "all")
+		{
+			$type_all = "selected=\"selected\"";
+		}
+		else
+		{
+			// Display error
+			displayMessage("Search type not entered!","goback");
+			die();
 		}
 		// Same with single vs all
 		if($_GET['scope'] == "single")

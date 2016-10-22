@@ -19,6 +19,7 @@
 				</td>
 				<td>
 					<select name="type">
+						<option value="all" [type_all]>All</option>
 						<option value="tags" [tags]>Tags</option>
 						<option value="title" [title]>Post Title</option>
 						<option value="post" [post]>Post Content</option>

@@ -275,6 +275,7 @@ class posts extends database
 		$limit = 10; // The limit of posts per page
 		// Re-set the fields
 		$this->changeFields(array("pid","title","text","date","tags","img","thumb","poster_id"));
+		$allSearch = false; // Are we searching all possible columns?
 		
 		// Set things up before entered the query
 		// Explode search queries into array
@@ -283,6 +284,7 @@ class posts extends database
 		if($type == "tags") $searchField = "tags";
 		elseif($type == "title")$searchField = "title";
 		elseif($type == "post") $searchField = "text";
+		elseif($type == "all") $allSearch = true;
 		else
 		{
 			displaymessage("Search type not entered!","goback");
@@ -299,7 +301,17 @@ class posts extends database
 		{
 			$like .= $andOr."$searchField LIKE '%".trim($searchArray[$i]," ")."%'";
 		}
-		$posts = $this->dbOutput(array($searchField,$like), $limit," AND hidden=0 ORDER BY date DESC",$start,true);
+
+		$allQuery = "tags" . $like . " OR " . "title" . $like . " OR " . "text" . $like;
+		if($allSearch)
+		{
+			$posts = $this->dbOutput(array($allQuery,""), $limit," AND hidden=0 ORDER BY date DESC",$start,true);
+		}
+		else
+		{
+			$posts = $this->dbOutput(array($searchField,$like), $limit," AND hidden=0 ORDER BY date DESC",$start,true);
+		}
+
 		// If no results were returned, say so, and stop here
 		if(count($posts) < 1)
 		{
@@ -315,7 +327,10 @@ class posts extends database
 		}
 		// Display older/newer post buttons, if required
 		$this->changeFields(array("pid"));
-		$numRows = count( $this->dbOutput(array($searchField,$like), false,false,false,true) );
+		if($allSearch)
+			$numRows = count( $this->dbOutput(array($allQuery,""), false,false,false,true) );
+		else
+			$numRows = count( $this->dbOutput(array($searchField,$like), false,false,false,true) );
 		// Set up URL if it's not set already
 		if(!isset($url))
 		{
