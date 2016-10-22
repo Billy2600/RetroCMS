@@ -46,15 +46,15 @@ if(isset($_GET['del']))
 {
 	$filename = $_GET['del'];
 	// Delete file if it exists
-	if(file_exists(IMG_UPLOAD_DIR.$filename))
+	if(file_exists(".".IMG_UPLOAD_DIR.$filename))
 	{
 		// Check that we own file (if not admin)
 		if($curUser->getUserType($user_id) == 1 || str2int($filename) == $user_id)
 		{
-			unlink(IMG_UPLOAD_DIR.$filename);
+			unlink(".".IMG_UPLOAD_DIR.$filename);
 			// Delete thumbnail if it exists
-			if(file_exists(THUMB_UPLOAD_DIR.$filename))
-				unlink(THUMB_UPLOAD_DIR.$filename);
+			if(file_exists(".".THUMB_UPLOAD_DIR.$filename))
+				unlink(".".THUMB_UPLOAD_DIR.$filename);
 		}
 	}
 	header("Location: /manage/imguploads.php");
@@ -62,7 +62,7 @@ if(isset($_GET['del']))
 // Display listing/upload form
 else
 {
-	$files = getDirectoryList(IMG_UPLOAD_DIR,"thumbs"); // Get file listing
+	$files = getDirectoryList(".".IMG_UPLOAD_DIR,"thumbs"); // Get file listing
 	// Begin form with image uploader
 	$form = '<strong>Upload Image:</strong> <form name="upload" action="/manage/imguploads.php" method="post" enctype="multipart/form-data">';
 	$form .= '<input type="hidden" name="submit" value="true">'."\n";
@@ -81,7 +81,7 @@ else
 			&& str2int($files[$i]) != $user_id)
 				continue; // Not ours, send back through loop
 		$form .= "<span style=\"float: left; padding: 3px; height: 250px; overflow: auto;\">\n";
-		$thumbExists = file_exists(THUMB_UPLOAD_DIR.$files[$i]); // Bool if thumb exists
+		$thumbExists = file_exists(".".THUMB_UPLOAD_DIR.$files[$i]); // Bool if thumb exists
 		// Check if thumb exists
 		if($thumbExists)
 		{
@@ -90,7 +90,7 @@ else
 		// No thumb, HTML resize image
 		else
 		{
-			$form .= "<a href=\"".IMG_EXTERN_DIR.$files[$i]."\"><img src=\"".IMG_EXTERN_DIR.$files[$i]."\" alt=\"".$files[$i]."\" style=\"width: 150px\" /></a>";
+			$form .= "<a href=\"".IMG_EXTERN_DIR.$files[$i]."\"><img src=\"".".".IMG_EXTERN_DIR.$files[$i]."\" alt=\"".$files[$i]."\" style=\"width: 150px\" /></a>";
 		}
 		$form .= "<br /><br />\nImage Path: <input type=\"text\" size=\"20\" value=\"".IMG_EXTERN_DIR.$files[$i]."\">";
 		$form .= '<br />
