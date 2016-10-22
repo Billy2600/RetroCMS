@@ -50,9 +50,14 @@ function htmlOutput($templateFile, $replace = false, $data = false,$return = fal
 {
 	$path = $templateFile;
 	// Attempt to include template path if not included
-	if(!file_exists($templateFile))
+	if(!file_exists($templateFile)  && substr( $templateFile, 0, 6 ) != "./tmpl")
 	{
 		$path = getTmplPath() . "/" . $templateFile;
+	}
+	// Fix broken relative paths
+	if(!file_exists($templateFile)  && substr( $templateFile, 0, 6 ) == "./tmpl")
+	{
+		$path = ".".$templateFile;
 	}
 
 	// Include the template file as a string
@@ -365,6 +370,12 @@ function uploadImage($input_file,$thumb=true,$max_upload_width=150,$max_upload_h
 	$img_dir=IMG_UPLOAD_DIR, $thumb_dir=THUMB_UPLOAD_DIR,
 	$extern_img_dir=IMG_EXTERN_DIR,$extern_thumb_dir=THUMB_EXTERN_DIR)
 {
+	// Fix relative paths, if required
+	if(!file_exists($img_dir))
+		$img_dir = "." . $img_dir;
+	if(!file_exists($thumb_dir))
+		$thumb_dir = "." . $thumb_dir;
+
 	switch($input_file["type"])
 	{
 	case "image/jpeg":
