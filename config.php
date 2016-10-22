@@ -28,9 +28,9 @@ define("DB_PREFIX","ret_"); // Database prefix
 
 define("SALT",""); // Type a bunch of random characters here
 
-define("IMG_UPLOAD_DIR",$_SERVER['DOCUMENT_ROOT']."/img/uploads/"); // Default image upload directory
-define("THUMB_UPLOAD_DIR",$_SERVER['DOCUMENT_ROOT']."/img/uploads/thumbs/"); // Default thumbnail upload directory
-define("AVATAR_UPLOAD_DIR",$_SERVER['DOCUMENT_ROOT']."/img/avatars/"); // Default avatar upload directory
+define("IMG_UPLOAD_DIR","./img/uploads/"); // Default image upload directory
+define("THUMB_UPLOAD_DIR","./img/uploads/thumbs/"); // Default thumbnail upload directory
+define("AVATAR_UPLOAD_DIR","./img/avatars/"); // Default avatar upload directory
 define("IMG_EXTERN_DIR","/img/uploads/"); // Same as image upload directory, but as the browser sees it
 define("THUMB_EXTERN_DIR","/img/uploads/thumbs/"); // Same as thumb director, but as browser sees it
 define("AVATAR_EXTERN_DIR","/img/avatars/"); // Same as avatar directory, but as the browser sees it
