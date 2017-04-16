@@ -1,10 +1,10 @@
 	[sidebar]
-	</div>
+	</nav>
 		<!-- end sidebar -->
 		<!-- footer -->
-		<div id="footer">
+		<footer id="footer">
 			<span id="dummy"></span>
-		</div>
+		</footer>
 		<!-- end footer -->
     </div>
 	<!-- end wrapper -->

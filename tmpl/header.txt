@@ -69,33 +69,28 @@
 	</script>
 </head>
 <body>
-	<!-- Logo strip
-		I know I shouldn't use tables for layouts, but... shut up
-		If you know a better way, e-mail me
-	-->
-	<table class="logostrip">
-		<tr>
-			<!-- logo (link to homepage) -->
-			<td class="logoleft">
-				<a href="/"><img src="/img/logo.png" alt="Retro of the Week Logo" /></a>
-			</td>
-			<!-- Categories and search -->
-			<td class="logoright">
-				<!-- login bar -->
-				<div class="loginbar">
-					[loginbar]
-				</div>
-				<div class="categories">
-					<a href="/">Home</a>&nbsp;
-					<a href="/tags/retro/">Retro</a>&nbsp;
-					<a href="/tags/modern/">Modern</a>&nbsp;
-					<a href="/tags/top 10/">Top 10</a>&nbsp;
-					<a href="/tags/other/">Other</a>&nbsp;
-					<a href="/about/">About</a>&nbsp;
-				</div>
-			</td>
-		</tr>
-	</table>
+	<!-- Logo strip -->
+	<header class="logostrip">
+		<!-- logo (link to homepage) -->
+		<div class="logoleft">
+			<a href="/"><img src="/img/logo.png" alt="Retro of the Week Logo" /></a>
+		</div>
+		<!-- Categories and search -->
+		<div class="logoright">
+			<!-- login bar -->
+			<div class="loginbar">
+				[loginbar]
+			</div>
+			<nav class="categories">
+				<a href="/">Home</a>&nbsp;
+				<a href="/tags/retro/">Retro</a>&nbsp;
+				<a href="/tags/modern/">Modern</a>&nbsp;
+				<a href="/tags/top 10/">Top 10</a>&nbsp;
+				<a href="/tags/other/">Other</a>&nbsp;
+				<a href="/about/">About</a>&nbsp;
+			</nav>
+		</div>
+	</header>
 	<!-- wrapper -->
     <div id="wrap">
 		<!-- main -->

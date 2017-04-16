@@ -1,7 +1,7 @@
 </div>
 		<!-- end main -->
 		<!-- sidebar -->
-		<div id="sidebar">
+		<nav id="sidebar">
 			<!-- search box -->
 			<div class="post_title" id="sidebartop">
 				<a href="/rssfeed/"><img src="/img/icon_rss.png" alt="rss" /></a>
