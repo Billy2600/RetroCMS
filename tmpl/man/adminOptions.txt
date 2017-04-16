@@ -1,3 +1,2 @@
 				<li class="ucp_title"><strong>Admin Options:</strong></li>
-				<li>- <a href="/manage/bans.php">Bans</a></li>
-				<li>- <a href="https://p3nlmysqladm001.secureserver.net/grid50/5295">phpMyAdmin</a></li>
+				<li>- <a href="/manage/bans.php">IP Bans</a></li>

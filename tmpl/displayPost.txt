@@ -9,7 +9,7 @@
 		<em>Posted on [date]</em>
 		[rating]
 	</div>
-	<div class="post_body">
+	<article class="post_body">
 	<!-- post image, if applicable -->
 	[img]
 	<!-- post body -->
@@ -21,4 +21,4 @@
 			<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//retrooftheweek.net/p/[id]/[canon]/" target="_blank"><img class="printicon" src="/img/icon_facebook.png" title="Share on Facebook" alt="Share on Facebook" /></a>
 			<a href="https://twitter.com/home?status=http%3A//retrooftheweek.net/p/[id]/[canon]/" target="_blank"><img class="printicon" src="/img/icon_twitter.png" title="Share on Twitter" alt="Share on Twitter" /></a>
 		</div>
-	</div>
+	</article>

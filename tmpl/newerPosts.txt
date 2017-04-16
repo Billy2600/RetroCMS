@@ -1,1 +1,1 @@
-<div class="newposts"><a href="[url][start]">Newer Posts &raquo;</a></div>
+<nav class="newposts"><a href="[url][start]">Newer Posts &raquo;</a></nav>

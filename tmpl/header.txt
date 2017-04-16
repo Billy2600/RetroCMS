@@ -94,5 +94,5 @@
 	<!-- wrapper -->
     <div id="wrap">
 		<!-- main -->
-		<div id="main" [fullwidth]>
+		<section id="main" [fullwidth]>
 		
