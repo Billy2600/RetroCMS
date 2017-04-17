@@ -24,6 +24,7 @@ CREATE TABLE `ret_account_types` (
   `title` varchar(45) NOT NULL,
   `admin` int(1) default NULL,
   `editor` int(1) default NULL,
+  `banned` int(1) default NULL,
   PRIMARY KEY  (`tid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
