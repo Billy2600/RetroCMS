@@ -37,7 +37,7 @@ function checkLoginAdminEditor()
 		header("Location: /");
 	
 	// Make sure they're allowed in
-	if(!$curUser->getUserType($session->getUserIdFromSession()) > 0)
+	if(!$curUser->getUserType($session->getUserIdFromSession()) > 0 && $curUser->getUserType($session->getUserIdFromSession()) != 4)
 		// Redirect to main page, aka GET OUT
 		header("Location: /");
 }
