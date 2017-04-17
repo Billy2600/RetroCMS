@@ -35,7 +35,7 @@ $user = new users();
 // Admin check
 if($user->getUserType($session->getUserIdFromSession()) != 1)
 {
-	header("Location: /manage/");
+	header("Location: /");
 }
 
 // Check if post is set, if set, update data in the database for this post, display success message
