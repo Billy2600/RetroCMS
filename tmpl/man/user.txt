@@ -1,0 +1,132 @@
+			<script type="text/javascript">
+				// Update avatar preview
+				$(document).ready(function() {
+					$("#avatar_input").blur(function() {
+						$("#avatar_prev").attr("src", $("#avatar_input").prop("value"));
+					});
+				});
+			</script>
+			<form name="edituser" action="/manage/users.php" method="post" enctype="multipart/form-data" class="edit_table">
+				<table>
+					<tr>
+						<td>
+							<strong>Username</strong>:
+						</td>
+						<td>
+							<input type="text" name="username" maxlength="20" size="20" value="[username]" required />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>New Password</strong>:
+						</td>
+						<td>
+							<input type="password" name="pass" maxlength="100" size="20" value="" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Confirm Password</strong>:
+						</td>
+						<td>
+							<input type="password" name="confirm_pass" maxlength="100" size="20" value="" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>E-mail:</strong>
+						</td>
+						<td>
+							<input name="email" type="email" size="20" maxlength="255" value="[email]" required />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Avatar:</strong>
+						</td>
+						<td>
+							<img src="[avatar]" id="avatar_prev"" width="100px" style="margin-bottom: 5%" /><br />
+							<input name="avatar" type="text" size="20" maxlength="255" value="[avatar]" id="avatar_input" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>First Name</strong>:
+						</td>
+						<td>
+							<input type="text" name="fname" maxlength="20" size="20" value="[fname]" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Last Name</strong>:
+						</td>
+						<td>
+							<input type="text" name="lname" maxlength="20" size="20" value="[lname]" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>About Me</strong>:
+						</td>
+						<td>
+							<textarea rows="5" cols="30" name="aboutme">[aboutme]</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Account Type</strong>:
+						</td>
+						<td>
+							<select name="account_type" [acc_type_disable]>
+								[account_type_selection]
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Gender</strong>:
+						</td>
+						<td>
+							<select name="gender">
+								[gender_selection]
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Birthday:</strong>
+						</td>
+						<td>
+							<select name="day">
+								[days]
+							</select>
+							<select name="month">
+								[months]
+							</select>
+							<select name="year">
+								[years]
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Country:</strong>
+						</td>
+						<td>
+							<select name="country">
+								[countries]
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<strong>Submit</strong>
+						</td>
+						<td>
+							<input type="submit" value="Submit" />
+						</td>
+					</tr>
+				</table>
+				<input type="hidden" name="uid" value="[uid]" />
+			</form>

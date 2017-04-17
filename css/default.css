@@ -584,3 +584,8 @@ input[type=image] {
 #userposts_table .even {
 	background-color: rgba(155,155,155,0.3) !important;
 }
+
+.edit_table td {
+	padding: 1%;
+	border-bottom: 1px solid white;
+}

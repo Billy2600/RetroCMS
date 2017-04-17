@@ -1,6 +1,6 @@
 			<form name="enterid" action="/manage/[dest].php" method="get">
-					Please enter the ID of the [type] you'd like to [dest]: <input type="text" name="id" maxlength="255" size="5" /> <input type="submit" value="Submit" /><br />
-					Or, select from one of your recent posts:
+					Please enter the ID of the [type] you'd like to edit: <input type="text" name="id" maxlength="255" size="5" /> <input type="submit" value="Submit" /><br />
+					Or, select from one of the following:
 				<ul>
 					[postlinks]
 				</ul>

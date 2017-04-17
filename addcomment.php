@@ -33,14 +33,22 @@ $session = new sessions();
 $loggedIn = $session->checkValid();
 $user_id = $session->getUserIdFromSession();
 
+$usr = new users();
+$msg = new messages();
+$pst = new posts();
+
+// Check for banned user
+if( $usr->getUserType($user_id) == 3 )
+{
+	htmlHeader($globalStrings["error_title"]);
+	displayMessage("You are banned!","goback");
+	htmlFooter();
+	die();
+}
+
 // Make sure form was used
 if(isset($_POST['post_id']))
 {
-	// Don't post to this id's
-	if((int)$_POST['post_id'] == 72)
-	{
-		die();
-	}
 	// If user is not logged in, check captcha
 	if(!$loggedIn)
 	{
@@ -84,11 +92,6 @@ if(isset($_POST['post_id']))
 		$msg_reply = 0;
 	// Insert into database
 	$comment->dbInput(array($posterName,$_POST['text'],$_POST['user_id'],$date,$_POST['post_id'],$_POST['reply'],$_SERVER['REMOTE_ADDR'],$msg_reply));
-	
-	// Message the owner of the post, if the setting was set
-	$usr = new users();
-	$msg = new messages();
-	$pst = new posts();
 	
 	// Do we pass along a name, or an ID? Used in next two if blocks
 	if($loggedIn)

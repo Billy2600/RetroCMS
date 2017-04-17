@@ -228,7 +228,7 @@ class users extends database
 	
 	// Get the type of user
 	// Checks the user with $id against the database of user types, returns what type the user belongs to
-	// Will return: 1 for admin, 2 for editor, or 0 if neither
+	// Will return: 1 for admin, 2 for editor, 3 if banned, or 0 if neither
 	public function getUserType($id)
 	{
 		//$id = addslashes($id); // Sanitize input
@@ -237,13 +237,17 @@ class users extends database
 		// Get account for user with the id of $id
 		$userType = $this->dbOutput(array("`uid`","='".$id."'"),false,false,false,true);
 		// Check what permissions that type has from account types database
-		$types = new database("account_types",array("admin","editor"));
+		$types = new database("account_types",array("admin","editor","banned"));
 		$typeInfo = $types->dbOutput(array("`tid`","='".$userType[0][0]."'"),false,false,false,true);
 		// Return what we got
+		if(!isset($typeInfo[0][0]))
+			return 0;
 		if($typeInfo[0][0] == "1") // Admin
 			return 1;
 		if($typeInfo[0][1] == "1") // Editor
 			return 2;
+		if($typeInfo[0][2] == "1") // Banned
+			return 3;
 		else // Anything else
 			return 0;
 	}
@@ -298,5 +302,23 @@ class users extends database
 			$outputHtml .= htmlOutput($tmplPath."/sidebarListItem.txt",array("pid","title"),$output[$i],true);
 		}
 		return str_replace( "/p/","/u/",$outputHtml );
+	}
+
+	public function CheckUserExists($userID)
+	{
+		$this->changeFields(array("uid"));
+		$postCheck = $this->dbOutput(array("uid","=$userID"));
+		// Check if post does not exist
+		if(count($postCheck) == 0)
+			return false;
+		else
+			return true;
+	}
+
+	// Will return an array of arrays in this format: array( array(uid, username) )
+	public function GetUserList($limit=10)
+	{
+		$this->changeFields(array("uid", "username"));
+		return $this->dbOutput(array(), $limit);
 	}
 }
