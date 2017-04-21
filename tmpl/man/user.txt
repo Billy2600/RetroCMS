@@ -6,7 +6,7 @@
 					});
 				});
 			</script>
-			<form name="edituser" action="/manage/users.php" method="post" enctype="multipart/form-data" class="edit_table">
+			<form name="edituser" action="/manage.php?section=users" method="post" enctype="multipart/form-data" class="edit_table">
 				<table>
 					<tr>
 						<td>
