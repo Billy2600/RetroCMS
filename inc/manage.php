@@ -478,15 +478,12 @@ class manage
 		$curUser = new users();
 		$files = $this->getDirectoryList(IMG_UPLOAD_DIR,"thumbs"); // Get file listing
 		// Begin form with image uploader
-		$form = '<strong>Upload Image:</strong> <form name="upload" action="/manage.php?section=imguploads" method="post" enctype="multipart/form-data">';
-		$form .= '<input type="hidden" name="submit" value="true">'."\n";
-		$form .= '<input type="file" name="image" size="40" id="image" /> <input type="submit" value="Submit" />';
-		$form .= '</form>';
+		$form = htmlOutput("tmpl/forms/imgupload.txt",false,false,true);
 		// Offer show all link to admins
 		if($curUser->getUserType($user_id) == 1 && !isset($_GET['showall']))
-			$form .= "<br />\n<a href=\"/manage.php?section=imguploads?showall=1\">Show all uploads</a><br />\n";
+			$form .= htmlOutput("tmpl/forms/imgupload_showall.txt",false,false,true);
 		else if($curUser->getUserType($user_id) == 1 && isset($_GET['showall']))
-			$form .= "<br />\n<a href=\"/manage.php?section=imguploads\">Show only my uploads</a><br />\n";
+			$form .= htmlOutput("tmpl/forms/imgupload_showmine.txt",false,false,true);
 		// Loop through and display
 		for($i = 0; $i < sizeof($files); $i++)
 		{
@@ -494,27 +491,20 @@ class manage
 			if((!isset($_GET['showall']) || $curUser->getUserType($user_id) != 1)
 				&& $this->str2int($files[$i]) != $user_id)
 					continue; // Not ours, send back through loop
-			$form .= "<span style=\"float: left; padding: 3px; height: 250px; overflow: auto;\">\n";
+
 			$thumbExists = file_exists(THUMB_UPLOAD_DIR.$files[$i]); // Bool if thumb exists
-			// Check if thumb exists
+			$thumb = IMG_EXTERN_DIR.$files[$i];
+			$width = "width: 150px";
 			if($thumbExists)
 			{
-				$form .= "<a href=\"".IMG_EXTERN_DIR.$files[$i]."\"><img src=\"".THUMB_EXTERN_DIR.$files[$i]."\" alt=\"".$files[$i]."\" /></a>";
+				$thumb = THUMB_EXTERN_DIR.$files[$i];
+				$width = "";
 			}
-			// No thumb, HTML resize image
-			else
-			{
-				$form .= "<a href=\"".IMG_EXTERN_DIR.$files[$i]."\"><img src=\"".".".IMG_EXTERN_DIR.$files[$i]."\" alt=\"".$files[$i]."\" style=\"width: 150px\" /></a>";
-			}
-			$form .= "<br /><br />\nImage Path: <input type=\"text\" size=\"20\" value=\"".IMG_EXTERN_DIR.$files[$i]."\">";
-			$form .= '<br />
-				<form action="/manage.php" method="get">';
-				if($thumbExists) $form .= "<br />Thumb Path: <input type=\"text\" size=\"20\" value=\"".THUMB_EXTERN_DIR.$files[$i]."\">";
-			$form .= '<input type="submit" value="Delete" />
-				<input type="hidden" name="del" value="'.$files[$i].'" />
-				<input type="hidden" name="section" value="imguploads" />
-				</form>';
-			$form .= "\n</span>";
+
+			$form .= htmlOutput("tmpl/man/imgupload_image.txt",
+				array("img","thumb","filename","width"),
+				array(IMG_EXTERN_DIR.$files[$i], $thumb, $files[$i], $width),
+				true);
 		}
 		
 		// Print everything out

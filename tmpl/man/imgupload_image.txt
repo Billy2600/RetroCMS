@@ -1,0 +1,10 @@
+<span style="float: left; padding: 3px; height: 250px; overflow: auto;">
+	<a href="[img]"><img src="[thumb]" alt="[filename]" style="[width]" /></a><br /><br />
+	Image Path: <input type="text" size="20" value="[img]"><br /><br />
+	Thumb Path: <input type="text" size="20" value="[thumb]">
+	<form action="/manage.php" method="get">
+		<input type="submit" value="Delete" />
+		<input type="hidden" name="del" value="[filename]" />
+		<input type="hidden" name="section" value="imguploads" />
+	</form>
+</span>

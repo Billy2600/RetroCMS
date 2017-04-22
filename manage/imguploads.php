@@ -64,10 +64,7 @@ else
 {
 	$files = getDirectoryList(".".IMG_UPLOAD_DIR,"thumbs"); // Get file listing
 	// Begin form with image uploader
-	$form = '<strong>Upload Image:</strong> <form name="upload" action="/manage/imguploads.php" method="post" enctype="multipart/form-data">';
-	$form .= '<input type="hidden" name="submit" value="true">'."\n";
-	$form .= '<input type="file" name="image" size="40" id="image" /> <input type="submit" value="Submit" />';
-	$form .= '</form>';
+	$form = htmlOutput("tmpl/forms/imgupload.txt");
 	// Offer show all link to admins
 	if($curUser->getUserType($user_id) == 1 && !isset($_GET['showall']))
 		$form .= "<br />\n<a href=\"/manage/imguploads.php?showall=1\">Show all uploads</a><br />\n";

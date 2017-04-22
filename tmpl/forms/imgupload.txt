@@ -1,0 +1,5 @@
+<strong>Upload Image:</strong>
+<form name="upload" action="/manage.php?section=imguploads" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="submit" value="true">
+	<input type="file" name="image" size="40" id="image" /> <input type="submit" value="Submit" />
+</form><br />

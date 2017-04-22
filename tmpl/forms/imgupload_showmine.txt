@@ -1,0 +1,1 @@
+<a href="/manage.php?section=imguploads">Show only my uploads</a><br />

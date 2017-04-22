@@ -1,0 +1,1 @@
+<a href="/manage.php?section=imguploads&showall=1">Show all uploads</a><br />
