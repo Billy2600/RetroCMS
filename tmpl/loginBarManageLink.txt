@@ -1,1 +1,1 @@
- - <a href="/manage/">Manage</a>
+ - <a href="/manage.php">Manage</a>

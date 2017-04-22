@@ -29,24 +29,29 @@ require_once "func.php";
 
 class manage
 {
+	private $session;
+	private $user_id;
+	private $curUser;
+
 	function __construct()
 	{
-		
+		$this->session = new sessions();	
+		$this->user_id = $this->session->getUserIdFromSession();
+		$this->curUser = new users();
+		$this->checkLoginAdminEditor();
 	}
 	
 	// Check for a users login information and admin/editor privledges
 	// Postcondition: If not logged in and an admin or editor, redirected to main page.
 	public function checkLoginAdminEditor()
 	{
-		$curUser = new users();
-		$session = new sessions();
 		// Make sure they're logged in, redirect if not
 		
-		if(!$session->checkValid())
+		if(!$this->session->checkValid())
 			header("Location: /");
-		
+	
 		// Make sure they're allowed in
-		if(!$curUser->getUserType($session->getUserIdFromSession()) > 0 && $curUser->getUserType($session->getUserIdFromSession()) != 4)
+		if(!$this->curUser->getUserType($this->session->getUserIdFromSession()) > 0 && $this->curUser->getUserType($this->session->getUserIdFromSession()) != 4)
 			// Redirect to main page, aka GET OUT
 			header("Location: /");
 	}
@@ -55,10 +60,7 @@ class manage
 	// Checks if currently logged in user is an admin, if so returns html of the admin options
 	public function getAdminOptions()
 	{
-		$curUser = new users();
-		$session = new sessions();
-		
-		if($curUser->getUserType($session->getUserIdFromSession()) == 1)
+		if($this->curUser->getUserType($this->session->getUserIdFromSession()) == 1)
 		{
 			// Get number of unvalidated posts
 			$uvPosts = new UvPosts();
@@ -91,9 +93,9 @@ class manage
 	//		return and error and ends the program
 	public function checkPostOwnership($pid,$uid)
 	{
-		$curUser = new users();
+		
 		// Get user type
-		$userType = $curUser->getUserType($uid);
+		$userType = $this->curUser->getUserType($uid);
 		// Check if user is editor, check if they own it
 		if($userType == 2)
 		{
@@ -158,9 +160,6 @@ class manage
 	// ****************
 	public function ShowIndex()
 	{
-		// Check for logged in and admin/editor status
-		$this->checkLoginAdminEditor();
-
 		// Display manage main page
 		htmlHeader("Management Panel");
 		// Display admin options if we are one
@@ -174,13 +173,8 @@ class manage
 	// IP BANS
 	public function Bans()
 	{
-		$curUser = new users();
-		// Check for logged in and admin/editor status
-		$this->checkLoginAdminEditor();
-		// This is an admin only page, so make sure we're an admin, not an editor
-		$session = new sessions();
 		// Editors get out
-		if($curUser->getUserType($session->getUserIdFromSession()) == 2)
+		if($this->curUser->getUserType($this->session->getUserIdFromSession()) == 2)
 			header("Location: /manage.php");
 
 		if(isset($_GET['addban'])) $this->AddBanPage();
@@ -270,14 +264,11 @@ class manage
 
 	// USERS
 	public function Users()
-	{
-		// Check for logged in and admin/editor status
-		$this->checkLoginAdminEditor();
-		$session = new sessions();
+	{	
 		$user = new users();
 
 		// Admin check
-		if($user->getUserType($session->getUserIdFromSession()) != 1)
+		if($user->getUserType($this->session->getUserIdFromSession()) != 1)
 		{
 			header("Location: /");
 		}
@@ -432,8 +423,8 @@ class manage
 		// Don't let admins lock themself out of the admin panel
 		// or let root admin be disabled
 		$accTypeDisable = "";
-		$session = new sessions();
-		if($session->getUserIdFromSession() == $_GET['id'] || $_GET['id'] == 1)
+		
+		if($this->session->getUserIdFromSession() == $_GET['id'] || $_GET['id'] == 1)
 		{
 			$accTypeDisable = "disabled";
 		}
@@ -472,24 +463,23 @@ class manage
 
 	private function ShowImageIndex()
 	{
-		$this->checkLoginAdminEditor();
-		$session = new sessions();
-		$user_id = $session->getUserIdFromSession();
-		$curUser = new users();
+		
+		
+		
 		$files = $this->getDirectoryList(IMG_UPLOAD_DIR,"thumbs"); // Get file listing
 		// Begin form with image uploader
 		$form = htmlOutput("tmpl/forms/imgupload.txt",false,false,true);
 		// Offer show all link to admins
-		if($curUser->getUserType($user_id) == 1 && !isset($_GET['showall']))
+		if($this->curUser->getUserType($this->user_id) == 1 && !isset($_GET['showall']))
 			$form .= htmlOutput("tmpl/forms/imgupload_showall.txt",false,false,true);
-		else if($curUser->getUserType($user_id) == 1 && isset($_GET['showall']))
+		else if($this->curUser->getUserType($this->user_id) == 1 && isset($_GET['showall']))
 			$form .= htmlOutput("tmpl/forms/imgupload_showmine.txt",false,false,true);
 		// Loop through and display
 		for($i = 0; $i < sizeof($files); $i++)
 		{
 			// Check if this is our image, if not admin that wants to see all images
-			if((!isset($_GET['showall']) || $curUser->getUserType($user_id) != 1)
-				&& $this->str2int($files[$i]) != $user_id)
+			if((!isset($_GET['showall']) || $this->curUser->getUserType($this->user_id) != 1)
+				&& $this->str2int($files[$i]) != $this->user_id)
 					continue; // Not ours, send back through loop
 
 			$thumbExists = file_exists(THUMB_UPLOAD_DIR.$files[$i]); // Bool if thumb exists
@@ -519,15 +509,15 @@ class manage
 
 	private function DeleteImage()
 	{
-		$curUser = new users();
+		
 		$filename = $_GET['del'];
-		$session = new sessions();
-		$user_id = $session->getUserIdFromSession();
+		
+		
 		// Delete file if it exists
 		if(file_exists(IMG_UPLOAD_DIR.$filename))
 		{
 			// Check that we own file (if not admin)
-			if($curUser->getUserType($user_id) == 1 || $this->str2int($filename) == $user_id)
+			if($this->curUser->getUserType($this->user_id) == 1 || $this->str2int($filename) == $this->user_id)
 			{
 				unlink(IMG_UPLOAD_DIR.$filename);
 				// Delete thumbnail if it exists
@@ -547,5 +537,434 @@ class manage
 			uploadImage($_FILES['image']);
 		}
 		header("Location: /manage.php?section=imguploads");
+	}
+
+	// ADD POST
+	public function AddPost()
+	{
+		if(isset($_POST['submit'])) $this->SubmitPost();
+		else $this->ShowPostForm();
+	}
+
+	private function ShowPostForm()
+	{
+		htmlHeader("Management Panel - Add Post");
+		// Display admin options if we are one
+		$adminOptions = $this->getAdminOptions();
+		// Retrieve form HTML
+		$form = htmlOutput("tmpl/man/add.txt",array(),array(),true);
+		htmlOutput("tmpl/man/main.txt",array("title","form","admin"),array("Add Post",$form,$adminOptions));
+		htmlFooter();
+	}
+
+	private function SubmitPost()
+	{
+		
+		
+		// Set up our fields
+		$fields = array("title","text","poster_id","date","tags","hidden");
+		// Create new posts object
+		$post = new posts($fields);
+		// Set up data
+		// Get date
+		$date = $post->getDateForMySQL();
+		// Default values if certain things are empty
+		if($_POST['title'] == "" || $_POST['title'] == " ")
+			$title = "Untitled";
+		else
+			$title = $_POST['title'];
+		if($_POST['tags'] == "" || $_POST['tags'] == " ")
+			$tags = "No tags";
+		else
+			$tags = $_POST['tags'];
+		// Do not allow user to enter no text
+		if($_POST['text'] == "" || $_POST['text'] == " ")
+		{
+			htmlHeader("Error");
+			displayMessage("No text entered!","goback");
+			htmlFooter();
+			die();
+		}
+		// Set hidden to 1 if box was checked
+		if(isset($_POST['hidden']))
+			$hidden = 1;
+		else
+			$hidden = 0;
+		
+		// Change incorrect image paths
+		$text = str_replace("../img/","/img/",$_POST['text']);
+		
+		// Create data array
+		$data = array($title,$text,$this->user_id,$date,$tags,$hidden);
+		// Upload image if not empty
+		if(!empty($_FILES['image']['name']))
+		{
+			// Add img and thumb fields
+			$fields[] = "img";
+			$fields[] = "thumb";
+			$post->changeFields($fields);
+			// Upload image
+			$img = uploadImage($_FILES['image']); // Returns the locations of the image/thumb in an array
+			// Add to data
+			$data[] = $img[0];
+			$data[] = $img[1];
+		}
+		// Insert data
+		$post->dbInput($data);
+		// Get latest post for this user
+		$post->changeFields(array("pid"));
+		$newPostArray = $post->dbOutput(array("poster_id","=".$this->user_id),"1","ORDER BY date DESC");
+		// Convert outputted array to single variable
+		$newPost = $newPostArray[0][0];
+		// Display success message/redirect
+		htmlHeader("Post Added");
+		displayMessage("Post has been added! Now redirecting to it, or click <a href=\"/p/$newPost/\">Here</a>","redirect","/p/$newPost/");
+		htmlFooter();
+	}
+
+	// EDIT POST
+	public function EditPost()
+	{
+		if(isset($_GET['id']) && !isset($_POST['submit'])) $this->ShowEditPostForm();
+		else if(isset($_POST['submit'])) $this->UpdatePost();
+		else $this->ShowPostIDForm();
+	}
+
+	private function ShowPostIDForm()
+	{
+		
+		
+		htmlHeader("Enter Post ID");
+		// Display admin options if we are one
+		$adminOptions = $this->getAdminOptions();
+		// Get current user's latest posts
+		$postObj = new posts();
+		$latestPosts = $postObj->getUsersLatestPosts($this->user_id);
+		
+		// Build latest post links
+		$postLinks = "";
+		for($i = 0; $i < count($latestPosts); $i++)
+		{
+			// Add destination string to array
+			$latestPosts[$i][] = "edit";
+			$postLinks .= htmlOutput("tmpl/man/postlink.txt",array("id","name","dest"),$latestPosts[$i],true);
+		}
+		// Retrieve form HTML
+		$form = htmlOutput("tmpl/man/enterID.txt",array("dest","type","postlinks"),array("edit","post",$postLinks),true);
+		htmlOutput("tmpl/man/main.txt",array("title","form","admin"),array("Enter Post ID",$form,$adminOptions));
+		htmlFooter();
+	}
+
+	private function ShowEditPostForm()
+	{
+		// Initialize post object
+		$post = new posts();
+		// Check if this post exists
+		$this->checkPostExistence($_GET['id']);
+		// Check if we own post/are admin
+		$this->checkPostOwnership($_GET['id'],$this->user_id);
+		
+		// Get information for this post
+		$fields = array("title","img","thumb","tags","text","hidden");
+		// Change fields to information we want
+		$post->changeFields($fields);
+		$data = $post->dbOutput(array("pid","=".$_GET['id']));
+		// Display form
+		htmlHeader("Management Panel - Edit Post #".$_GET['id']."");
+		// Display admin options if we are one
+		$adminOptions = $this->getAdminOptions();
+		// Retrieve form HTML
+		// Add id into arrays for replacement
+		$fields[] = "id";
+		$data[0][] = $_GET['id'];
+		// Strip slashes from post text
+		$data[0][4] = stripslashes($data[0][4]);
+		// Check hidden checkbox if this post was hidden
+		if((int)$data[0][5] == 1)
+			$data[0][5] = ' checked="true" ';
+		else
+			$data[0][5] = '';
+		$form = htmlOutput("tmpl/man/edit.txt",$fields,$data[0],true);
+		htmlOutput("tmpl/man/main.txt",array("title","form","admin"),array("Editing Post ID ".$_GET['id'],$form,$adminOptions));
+		htmlFooter();
+	}
+
+	private function UpdatePost()
+	{
+		// Check if this post exists
+		$this->checkPostExistence($_POST['pid']);
+		// Check if we own post/are admin
+		$this->checkPostOwnership($_POST['pid'],$this->user_id);
+		
+		// Set up our fields
+		$fields = array("title","text","tags","hidden");
+		// Create new posts object
+		$post = new posts($fields);
+		// Set hidden to 1 if they checked the box
+		if(isset($_POST['hidden']))
+			$hidden = 1;
+		else
+			$hidden = 0;
+			
+		// Change incorrect image paths
+		$text = str_replace("../img/","/img/",$_POST['text']);
+		
+		// Create data array
+		$data = array($_POST['title'],$text,$_POST['tags'],$hidden);
+		
+		// Update to today's date if applicable
+		if(isset($_POST['date']))
+		{
+			$fields[] = "date";
+			$data[] = $post->getDateForMySQL();
+			$post->changeFields($fields);
+		}
+		
+		// Remove old image if box was checked and/or we're uploading a file
+		if(!empty($_FILES['image']['name']) || isset($_POST['noimg']))
+		{
+			// Add img and thumb fields
+			$fields[] = "img";
+			$fields[] = "thumb";
+			$post->changeFields($fields);
+			
+			// Delete old images, if applicable
+			$oldImgs = $post->dbOutput(array("pid=",$_POST['pid']));
+			deleteFile( str_replace(IMG_EXTERN_DIR,IMG_UPLOAD_DIR,$oldImgs[0][4]) );
+			deleteFile( str_replace(IMG_EXTERN_DIR,IMG_UPLOAD_DIR,$oldImgs[0][5]) );
+				
+			// Upload image
+			if( !empty($_FILES['image']['name']) )
+			{
+				$img = uploadImage($_FILES['image']); // Returns the locations of the image/thumb in an array
+				// Add to data
+				$data[] = $img[0];
+				$data[] = $img[1];
+			}
+			else
+			{
+				$data[] = "";
+				$data[] = "";
+			}
+		}
+		// Insert data
+		$post->dbUpdate($data,"pid",$_POST['pid']);
+		// Display success message/redirect
+		htmlHeader("Post Edited");
+		displayMessage("Post has been Edited! Now redirecting to it, or click <a href=\"/p/".$_POST['pid']."/\">Here</a>","redirect","/p/".$_POST['pid']."/");
+		htmlFooter();
+	}
+
+	// DELETE POST
+	public function DeletePost()
+	{
+		if(isset($_GET['id']) && !isset($_POST['confirmed'])) $this->ShowDeleteConfirm();
+		else if(isset($_POST['confirmed'])) $this->SubmitDelete();
+		else $this->ShowDeleteIDForm();
+	}
+
+	private function ShowDeleteIDForm()
+	{
+		
+		
+		htmlHeader("Enter Post ID");
+		// Display admin options if we are one
+		$adminOptions = $this->getAdminOptions();
+		// Get current user's latest posts
+		$postObj = new posts();
+		$latestPosts = $postObj->getUsersLatestPosts($this->user_id);
+		
+		// Build latest post links
+		$postLinks = "";
+		for($i = 0; $i < count($latestPosts); $i++)
+		{
+			// Add destination string to array
+			$latestPosts[$i][] = "delete";
+			$postLinks .= htmlOutput("tmpl/man/postlink.txt",array("id","name","dest"),$latestPosts[$i],true);
+		}
+		// Retrieve form HTML
+		$form = htmlOutput("tmpl/man/enterID.txt",array("dest","type","postlinks"),array("delete","post",$postLinks),true);
+		htmlOutput("tmpl/man/main.txt",array("title","form","admin"),array("Enter Post ID",$form,$adminOptions));
+		htmlFooter();
+	}
+
+	private function ShowDeleteConfirm()
+	{
+		
+		
+		// Initialize post object
+		$post = new posts();
+		// Check if this post exists
+		$this->checkPostExistence($_GET['id']);
+		// Check if we own post/are admin
+		$this->checkPostOwnership($_GET['id'],$this->user_id);
+		
+		// Display form
+		htmlHeader("Management Panel - Delete Post #".$_GET['id']."");
+		
+		// Are you sure you want to delete this post?
+		$text = 'WARNING: Deleting this post will <strong>permanently</strong> delete this post and all the comments attched to it. Are you sure you want to delete this?';
+		displayMessage($text,"confirm","/manage.php?section=delete&pid=".$_GET['id']);
+		
+		htmlFooter();
+	}
+
+	private function SubmitDelete()
+	{
+		
+		
+		// Check if this post exists
+		$this->checkPostExistence($_GET['pid']);
+		// Check if we own post/are admin
+		$this->checkPostOwnership($_GET['pid'],$this->user_id);
+		
+		// Delete the post specified
+		$post = new posts(array("pid"));
+		$post->deletePost($_GET['pid']);
+		
+		htmlHeader("Post Deleted");
+		displayMessage("Post has been deleted! Now redirecting back to manage home or click <a href=\"/manage/\">here</a>","redirect","/manage/");
+		htmlFooter();
+	}
+
+	// DELETE COMMENTS
+	public function DeleteComment()
+	{
+		if(isset($_POST['com_id'])) $this->SubmitDeleteComment();
+		elseif(isset($_GET['id'])) $this->ShowComments();
+		else $this->ShowCommentIDForm();
+	}
+
+	private function ShowCommentIDForm()
+	{
+		htmlHeader("Enter Post ID");
+		// Display admin options if we are one
+		$adminOptions = $this->getAdminOptions();
+		// Get current user's latest posts
+		$postObj = new posts();
+		$latestPosts = $postObj->getUsersLatestPosts($this->user_id);
+		
+		// Build latest post links
+		$postLinks = "";
+		for($i = 0; $i < count($latestPosts); $i++)
+		{
+			// Add destination string to array
+			$latestPosts[$i][] = "delete_com";
+			$postLinks .= htmlOutput("tmpl/man/postlink.txt",array("id","name","dest"),$latestPosts[$i],true);
+		}
+		// Retrieve form HTML
+		$form = htmlOutput("tmpl/man/enterID.txt",array("dest","type","postlinks"),array("delete_com","post",$postLinks),true);
+		htmlOutput("tmpl/man/main.txt",array("title","form","admin"),array("Enter Post ID",$form,$adminOptions));
+		htmlFooter();
+	}
+
+	private function ShowComments()
+	{
+		// Make sure this posts exists
+		$post = new posts();
+		if(!$post->checkPostExistsID($_GET['id']))
+		{
+			htmlHeader("Error");
+			displayMessage("Post with that ID does not exist!","goback");
+			htmlFooter();
+			die();
+		}
+		htmlHeader("Showing Comments for post ID ".$_GET['id']."");
+		// Display admin options if we are one
+		$adminOptions = $this->getAdminOptions();
+		// Beginning of form, top of the table
+		$form = htmlOutput("tmpl/man/comTable.txt",NULL,NULL,true);
+		// Get comments for this post
+		$comments = new comments(array("cid","name","poster_id","text"));
+		$comData = $comments->dbOutput(array("post_id","=".$_GET['id']));
+		// Display comments in table
+		for($i = 0; $i < count($comData); $i++)
+		{
+			// Set up data array
+			$data = array();
+			// ID
+			$data[] = $comData[$i][0];
+			// If there's no name, get the poster ID's name
+			if( $comData[$i][1] == "Anonymous" || empty( $comData[$i][1] ) )
+			{
+				$user = new users( array( "username" ) );
+				$userName = $user->dbOutput( array( "uid","=".$comData[$i][2] ) );
+				$data[] = $userName[0][0];
+			}
+			else
+			{
+				$data[] = $comData[$i][1];
+			}
+			// Cut down the text
+			$data[] = substr($comData[$i][3],0,255)."...";
+			// Post ID
+			$data[] = $_GET['id'];
+			$form .= htmlOutput("tmpl/man/comTableRow.txt",array("cid","name","text","pid"),$data,true);
+		}
+		
+		// End of table, display page
+		$form .= htmlOutput("tmpl/man/comTableEnd.txt",NULL,NULL,true);
+		htmlOutput("tmpl/man/main.txt",array("title","form","admin"),array("Comments for post ".$_GET['id'],$form,$adminOptions));
+		htmlFooter();
+	}
+
+	private function SubmitDeleteComment()
+	{
+		$comments = new comments(array("ip_address")); // Comments object
+		// Loop through and delete comments
+		foreach($_POST['com_id'] as $cid)
+		{
+			// Ban IP, if that was selected
+			if(isset($_POST['ban']))
+			{
+				// Get IP from comment
+				$ip = $comments->dbOutput(array("cid","=$cid"));
+				// Ban it
+				$this->AddBan($ip[0][0]);
+			}
+			
+			// Delete the comment
+			$comments->deleteData("cid",$cid);
+		}
+		// Display success message
+		$txt = "Comment(s) deleted, ";
+		if(isset($_POST['ban']))
+			$txt .= "and users banned, ";
+		$txt .=  'now redirecting to manage main page, or click <a href="/manage/">here</a>.';
+		htmlHeader("Comments Deleted");
+		displayMessage($txt,"redirect","/manage/");
+		htmlFooter();
+	}
+
+	// TINY URL
+	public function Tinyurl()
+	{
+		if(isset($_POST['url'])) $this->CreateTinyurl();
+		else $this->ShowTinyurlForm();
+	}
+
+	private function ShowTinyurlForm()
+	{
+		htmlHeader(" - Generate a Tiny URL");
+		// Display admin options if we are one
+		$adminOptions = $this->getAdminOptions();
+		// Get form
+		$form = htmlOutput("tmpl/man/tinyurl.txt",array(),array(),true);
+		// Display
+		htmlOutput("tmpl/man/main.txt",array("title","form","admin"),array("Create a TinyURL",$form,$adminOptions));
+		htmlFooter();
+	}
+
+	private function CreateTinyurl()
+	{
+		htmlHeader(" - Tiny URL Generated");
+		$tinyUrl = GetTinyURL($_POST['url']);
+		// Display admin options if we are one
+		$adminOptions = $this->getAdminOptions();
+		// Display result
+		$form = htmlOutput("tmpl/man/tinyurl_result.txt",array("tinyurl"),array($tinyUrl),true);
+		// Display
+		htmlOutput("tmpl/man/main.txt",array("title","form","admin"),array("TinyURL Created",$form,$adminOptions));
+		htmlFooter();
 	}
 }

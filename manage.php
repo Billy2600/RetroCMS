@@ -39,6 +39,21 @@ switch($section)
 	case "imguploads":
 		$manage->ImageUploads();
 		break;
+	case "add":
+		$manage->AddPost();
+		break;
+	case "edit":
+		$manage->EditPost();
+		break;
+	case "delete":
+		$manage->DeletePost();
+		break;
+	case "delete_com":
+		$manage->DeleteComment();
+		break;
+	case "tinyurl":
+		$manage->Tinyurl();
+		break;
 	default:
 		$manage->ShowIndex();
 		break;

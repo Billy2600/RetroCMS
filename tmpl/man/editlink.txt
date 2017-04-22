@@ -1,1 +1,1 @@
-[<a href="/manage/edit.php?id=[pid]">Edit</a>]
+[<a href="/manage.php?section=edit&id=[pid]">Edit</a>]

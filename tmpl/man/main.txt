@@ -7,12 +7,12 @@
 					<ul>
 						[admin]
 						<li class="ucp_title"><strong>Editor Options:</strong></li>
-						<li>- <a href="/manage/imguploads.php">Upload Images</a></li>
-						<li>- <a href="/manage/add.php">Add Post</a></li>
-						<li>- <a href="/manage/edit.php">Edit Post</a></li>
-						<li>- <a href="/manage/delete_com.php">Delete Comments</a></li>
-						<li>- <a href="/manage/delete.php">Delete Post</a></li>
-						<li>- <a href="/manage/tinyurl.php">Create TinyURL</a></li>
+						<li>- <a href="/manage.php?&section=imguploads">Upload Images</a></li>
+						<li>- <a href="/manage.php?&section=add">Add Post</a></li>
+						<li>- <a href="/manage.php?&section=edit">Edit Post</a></li>
+						<li>- <a href="/manage.php?&section=delete">Delete Post</a></li>
+						<li>- <a href="/manage.php?&section=delete_com">Delete Comments</a></li>
+						<li>- <a href="/manage.php?&section=tinyurl">Create TinyURL</a></li>
 						<!-- <li>- <a href="/manage/social.php">Post to Social Networking</a></li> -->
 					</ul>
 				</td>

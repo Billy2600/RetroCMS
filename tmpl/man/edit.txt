@@ -22,7 +22,7 @@
 				}
 			</script>
 			<script type="text/javascript" src="/js/preview.js"></script>
-			<form name="editpost" action="/manage/edit.php" method="post" enctype="multipart/form-data">
+			<form name="editpost" action="/manage.php?section=edit" method="post" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<td>
